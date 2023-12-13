@@ -3,10 +3,17 @@ const actividadesController = require("../controllers/actividades.controller");
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/users.controller");
 const authMiddleware = require("../middlewares/auth.middlewares");
+const eventosController = require("../controllers/eventos.controller")
+const restaurantesController = require("../controllers/restaurantes.controller")
 
-router.get("/", (req, res, next) => {
-    res.render("home");
-  });
+
+// Rutas a eventos
+  router.get("/eventos", eventosController.home);
+  router.get("/eventos/:id", eventosController.detail)
+
+  //Rutas a restaurantes
+  router.get("/restaurantes", restaurantesController.home);
+  router.get("/restaurantes/:id", restaurantesController.detail)
 
   router.get("/actividades", actividadesController.list);
 

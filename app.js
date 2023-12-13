@@ -40,6 +40,12 @@ app.use((err, req, res, next) => {
   }
 })
 
+//Home router
+router.get("/", (req, res, next) => {
+  res.render("home")
+})
+
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`App running at port ${port} 🚀🚀`));
