@@ -1,0 +1,79 @@
+{
+    "eventos": [
+        {
+            "title": "Exposición de Arte Contemporáneo",
+            "imageUrl": "https://example.com/arte_contemporaneo.jpg",
+            "date": "2023-12-28",
+            "duration": "4 horas",
+            "price": 15.00,
+            "location": "Centro de Exposiciones Reina Sofía, Madrid",
+            "category": "Arte"
+        },
+        
+        {
+            "title": "Concierto de Música Latina",
+            "imageUrl": "https://example.com/concierto_musica_latina.jpg",
+            "date": "2023-12-18",
+            "duration": "3 horas",
+            "price": 30.00,
+            "location": "Estadio Wanda Metropolitano, Madrid",
+            "category": "Música"
+        },
+        
+        {
+            "title": "Partido de Fútbol: Real Madrid vs. Barcelona",
+            "imageUrl": "https://example.com/partido_real_madrid_barcelona.jpg",
+            "date": "2023-12-23",
+            "duration": "2 horas",
+            "price": 50.00,
+            "location": "Estadio Santiago Bernabéu, Madrid",
+            "category": "Deportes"
+        },
+        
+        {
+            "title": "Feria de Navidad en la Plaza Mayor",
+            "imageUrl": "https://example.com/feria_navidad_plaza_mayor.jpg",
+            "date": "2023-12-15",
+            "duration": "Todo el día",
+            "price": 0.00,
+            "location": "Plaza Mayor, Madrid",
+            "category": "Festivales"
+        },
+        {
+            "title": "Noche de Drama: Obra de Teatro en el Teatro Real",
+            "imageUrl": "https://example.com/teatro_real.jpg",
+            "date": "2023-12-19",
+            "duration": "2.5 horas",
+            "price": 20.00,
+            "location": "Teatro Real, Madrid",
+            "category": "Arte"
+        },
+        {
+            "title": "Festival de Cine Internacional de Madrid",
+            "imageUrl": "https://example.com/festival_cine_madrid.jpg",
+            "date": "2023-12-21",
+            "duration": "Varía según las proyecciones",
+            "price": 12.00,
+            "location": "Diversos cines, Madrid",
+            "category": "Arte"
+        },
+        {
+            "title": "Explorando el Futuro: Conferencia de Ciencia y Tecnología",
+            "imageUrl": "https://example.com/conferencia_ciencia_tecnologia.jpg",
+            "date": "2023-12-17",
+            "duration": "3 horas",
+            "price": 15.00,
+            "location": "Centro de Convenciones, Madrid",
+            "category": "Exposiciones temporales"
+        },
+        {
+            "title": "Encuentra Tesoros: Mercadillo de Antigüedades en El Rastro",
+            "imageUrl": "https://example.com/mercadillo_rastro.jpg",
+            "date": "2023-12-16",
+            "duration": "Toda la mañana",
+            "price": 0.00,
+            "location": "El Rastro, Madrid",
+            "category": "Arte"
+        }        
+    ]
+  }

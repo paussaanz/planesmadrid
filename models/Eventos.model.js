@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const categoriesAllowed = ["deportes", "música", "exposiciones temporales", "otro"];
+const categoriesAllowed = ["Deportes", "Música", "Exposiciones temporales", "Otro", "Arte", "Festivales"];
 
 const EventoSchema = mongoose.Schema({
     title: {
