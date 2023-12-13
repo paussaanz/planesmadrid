@@ -36,6 +36,10 @@ const ActividadSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: true
+    },
     url: {
         type: String,
         required: true,
@@ -49,5 +53,5 @@ const ActividadSchema = mongoose.Schema({
     }
 });
 
-const Actividad = mongoose.model("Book", ActividadSchema);
+const Actividad = mongoose.model("Actividad", ActividadSchema);
 module.exports = Actividad;

@@ -16,7 +16,17 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
 
 hbs.registerPartials(__dirname + "/views/partials");
+
+
+const { sessionConfig } = require("./config/session.config");
+app.use(sessionConfig);
+app.use((req, res, next) => {
+  res.locals.currentUser = req.session.currentUser;
+  next();
+});
+
 const router = require("./router/router");
+
 app.use("/", router);
 
 // Middleware to handle errors.
