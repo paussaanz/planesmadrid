@@ -7,7 +7,9 @@
             "duration": "4 horas",
             "price": 15.00,
             "location": "Centro de Exposiciones Reina Sofía, Madrid",
-            "category": "Arte"
+            "category": "Arte",
+            "latitud": 40.4169,
+            "longitud": -3.7038
         },
         
         {
@@ -17,7 +19,9 @@
             "duration": "3 horas",
             "price": 30.00,
             "location": "Estadio Wanda Metropolitano, Madrid",
-            "category": "Música"
+            "category": "Música",
+            "latitud": 40.4169,
+            "longitud": -3.7038
         },
         
         {
@@ -27,7 +31,9 @@
             "duration": "2 horas",
             "price": 50.00,
             "location": "Estadio Santiago Bernabéu, Madrid",
-            "category": "Deportes"
+            "category": "Deportes",
+            "latitud": 40.4169,
+            "longitud": -3.7038
         },
         
         {
@@ -37,7 +43,9 @@
             "duration": "Todo el día",
             "price": 0.00,
             "location": "Plaza Mayor, Madrid",
-            "category": "Festivales"
+            "category": "Festivales",
+            "latitud": 40.4169,
+            "longitud": -3.7038
         },
         {
             "title": "Noche de Drama: Obra de Teatro en el Teatro Real",
@@ -46,7 +54,9 @@
             "duration": "2.5 horas",
             "price": 20.00,
             "location": "Teatro Real, Madrid",
-            "category": "Arte"
+            "category": "Arte",
+            "latitud": 40.4169,
+            "longitud": -3.7038
         },
         {
             "title": "Festival de Cine Internacional de Madrid",
@@ -55,7 +65,9 @@
             "duration": "Varía según las proyecciones",
             "price": 12.00,
             "location": "Diversos cines, Madrid",
-            "category": "Arte"
+            "category": "Arte",
+            "latitud": 40.4169,
+            "longitud": -3.7038
         },
         {
             "title": "Explorando el Futuro: Conferencia de Ciencia y Tecnología",
@@ -64,7 +76,9 @@
             "duration": "3 horas",
             "price": 15.00,
             "location": "Centro de Convenciones, Madrid",
-            "category": "Exposiciones temporales"
+            "category": "Exposiciones temporales",
+            "latitud": 40.4169,
+            "longitud": -3.7038
         },
         {
             "title": "Encuentra Tesoros: Mercadillo de Antigüedades en El Rastro",
@@ -73,7 +87,9 @@
             "duration": "Toda la mañana",
             "price": 0.00,
             "location": "El Rastro, Madrid",
-            "category": "Arte"
+            "category": "Arte",
+            "latitud": 40.4169,
+            "longitud": -3.7038
         }        
     ]
   }

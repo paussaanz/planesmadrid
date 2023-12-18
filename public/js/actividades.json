@@ -9,7 +9,9 @@
         "location": "Museo Reina Sofía, Calle de Santa Isabel, 52",
         "category": "Museos",
         "description": "Ejemplo",
-        "url": "https://www.museoreinasofia.es/"
+        "url": "https://www.museoreinasofia.es/",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Free Tour por el Centro Histórico de Madrid",
@@ -20,7 +22,9 @@
         "location": "Punto de encuentro: Puerta del Sol",
         "category": "Free Tour",
         "description": "Ejemplo",
-        "url": "https://ogotours.es/free-tour-madrid/"
+        "url": "https://ogotours.es/free-tour-madrid/",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Visita a la Exposición de Fotografía en el Círculo de Bellas Artes",
@@ -31,7 +35,9 @@
         "location": "Círculo de Bellas Artes, Calle de Alcalá, 42",
         "category": "Museos",
         "description": "Ejemplo",
-        "url": "https://www.circulobellasartes.com/exposiciones/"
+        "url": "https://www.circulobellasartes.com/exposiciones/",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Ruta Gastronómica por el Mercado de San Miguel",
@@ -42,7 +48,9 @@
         "location": "Mercado de San Miguel, Plaza de San Miguel, s/n",
         "category": "Rutas",
         "description": "Ejemplo",
-        "url": "https://buendiatours.com/es/guias/madrid/mercado-san-miguel"
+        "url": "https://buendiatours.com/es/guias/madrid/mercado-san-miguel",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Concierto en el Teatro Real: Música Clásica Española",
@@ -53,7 +61,9 @@
         "location": "Teatro Real, Plaza de Isabel II, s/n",
         "category": "Música",
         "description": "Ejemplo",
-        "url": "https://www.teatroreal.es/es/calendario"
+        "url": "https://www.teatroreal.es/es/calendario",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Free Tour por el Barrio de las Letras",
@@ -64,7 +74,9 @@
         "location": "Punto de encuentro: Plaza de Santa Ana",
         "category": "Free Tour",
         "description": "Ejemplo",
-        "url": "https://www.guruwalk.com/es/madrid/tag/barrio-de-las-letras"
+        "url": "https://www.guruwalk.com/es/madrid/tag/barrio-de-las-letras",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Taller de Tapas: Aprende a Preparar las Clásicas Españolas",
@@ -75,7 +87,9 @@
         "location": "Ubicación del taller será proporcionada al reservar",
         "category": "Talleres",
         "description": "Ejemplo",
-        "url": "https://www.cookingole.com/talleresycursosdecocinaensevilla/tallerdetapasespanolas-4x3nn-6z6nx-mr2wl"
+        "url": "https://www.cookingole.com/talleresycursosdecocinaensevilla/tallerdetapasespanolas-4x3nn-6z6nx-mr2wl",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Exposición de Pintura Clásica en el Museo del Prado",
@@ -86,7 +100,9 @@
         "location": "Museo del Prado, Paseo del Prado, s/n",
         "category": "Museos",
         "description": "Ejemplo",
-        "url": "https://www.museodelprado.es/"
+        "url": "https://www.museodelprado.es/",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Visita Nocturna al Palacio Real",
@@ -97,7 +113,9 @@
         "location": "Palacio Real, Calle Bailén, s/n",
         "category": "Palacios",
         "description": "Ejemplo",
-        "url": "https://tickets.patrimonionacional.es/es/tickets/palacio-real-de-madrid"
+        "url": "https://tickets.patrimonionacional.es/es/tickets/palacio-real-de-madrid",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Free Tour por el Madrid Medieval",
@@ -108,7 +126,9 @@
         "location": "Punto de encuentro: Plaza de la Villa",
         "category": "Free Tour",
         "description": "Ejemplo",
-        "url": "https://reservafreetour.com/free-tour-madrid-medieval/"
+        "url": "https://reservafreetour.com/free-tour-madrid-medieval/",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Espectáculo de Flamenco en Tablao Flamenco 1911",
@@ -119,7 +139,9 @@
         "location": "Tablao Flamenco 1911, Plaza Santa Ana, 15",
         "category": "Espectáculo",
         "description": "Ejemplo",
-        "url": "https://tablaoflamenco1911.com/es/"
+        "url": "https://tablaoflamenco1911.com/es/",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Exposición de Esculturas al Aire Libre en el Parque del Retiro",
@@ -130,7 +152,9 @@
         "location": "Parque del Retiro",
         "category": "Parques",
         "description": "Ejemplo",
-        "url": "https://www.esmadrid.com/informacion-turistica/parque-del-retiro"
+        "url": "https://www.esmadrid.com/informacion-turistica/parque-del-retiro",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Free Tour por el Madrid de los Austrias",
@@ -141,7 +165,9 @@
         "location": "Punto de encuentro: Plaza Mayor",
         "category": "Free Tour",
         "description": "Ejemplo",
-        "url": "https://www.freetour.com/es/madrid/free-tour-madrid-de-los-austrias"
+        "url": "https://www.freetour.com/es/madrid/free-tour-madrid-de-los-austrias",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       },
       {
         "title": "Recorrido en Bicicleta por el Parque Lineal del Manzanares",
@@ -152,7 +178,9 @@
         "location": "Inicio en Madrid Río",
         "category": "Deportes y Naturaleza",
         "description": "Ejemplo",
-        "url": "https://www.guiarepsol.com/es/viajar/vamos-de-excursion/ruta-en-bici-por-madrid-rio-y-el-paseo-fluvial-del-manzanares/"
+        "url": "https://www.guiarepsol.com/es/viajar/vamos-de-excursion/ruta-en-bici-por-madrid-rio-y-el-paseo-fluvial-del-manzanares/",
+        "latitud": 40.4169,
+        "longitud": -3.7038
       }
     ]
   }

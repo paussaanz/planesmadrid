@@ -33,6 +33,24 @@ const RestauranteSchema = new mongoose.Schema({
         max: 5,
       },
     },
+    imageUrl: {
+      type: String,
+      validate: {
+          validator: function(value) {
+              const imageRegex = /\.(jpg|jpeg|png|gif|bmp)$/i;
+              return imageRegex.test(value);
+          },
+          message: 'La URL de la imagen proporcionada no es válida'
+      }
+  },
+  latitud: {
+    type: Number,
+    required: true,
+  },
+  longitud: {
+    type: Number,
+    required: true
+  }
 });
 
 const Restaurante = mongoose.model('Restaurante', RestauranteSchema);

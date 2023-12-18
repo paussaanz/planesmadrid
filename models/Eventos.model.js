@@ -39,6 +39,14 @@ const EventoSchema = mongoose.Schema({
         enum: categoriesAllowed,
         required: true
     },
+    latitud: {
+        type: Number,
+        required: true,
+      },
+      longitud: {
+        type: Number,
+        required: true
+      }
 });
 
 const Evento = mongoose.model("Evento", EventoSchema);

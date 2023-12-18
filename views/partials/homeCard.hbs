@@ -1,0 +1,12 @@
+<div class="col">
+  <div class="card h-100">
+    {{!-- <img src="..." class="card-img-top" alt="..."> --}}
+    <div class="card-body">
+      <h5 class="card-title">{{#if name}}{{name}}{{else}}{{title}}{{/if}}</h5>
+      <img src="{{imageURL}}" alt="Imagen del evento" class="imagen-evento">
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+      <small class="text-body-secondary"><a href="/actividades/{{_id}}" class="link-opacity-50-hover">Ver más</a></small>
+    </div>
+  </div>
+</div>

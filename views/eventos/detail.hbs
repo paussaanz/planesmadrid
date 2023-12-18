@@ -9,5 +9,17 @@
             <p><strong>Categoría:</strong> {{evento.category}}</p>
             <p><strong>Enlace:</strong> <a href="{{enlace}}">Enlace al evento</a></p>
         </div>
+                <div id="map"></div>
+
         <p>Descripción detallada del evento...</p>
     </div>
+    <script>
+    let map = L.map('map').setView([{{evento.latitud}}, {{evento.longitud}}], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const marker = L.marker([{{evento.latitud}}, {{evento.longitud}}]).addTo(map);
+</script>

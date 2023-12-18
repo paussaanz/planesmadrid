@@ -3,8 +3,10 @@ require("dotenv").config();
 const express = require("express");
 const hbs = require("hbs");
 const logger = require("morgan");
+const passport = require("passport");
 
 require("./config/db.config"); // es como si pusieramos todas las lineas del db.confgi aquí, pero somos mejores que eso.
+require("./config/passport.config");
 
 const app = express();
 

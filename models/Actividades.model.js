@@ -50,7 +50,15 @@ const ActividadSchema = mongoose.Schema({
             },
             message: 'La URL proporcionada no es válida'
         }
-    }
+    },
+    latitud: {
+        type: Number,
+        required: true,
+      },
+      longitud: {
+        type: Number,
+        required: true
+      }
 });
 
 const Actividad = mongoose.model("Actividad", ActividadSchema);

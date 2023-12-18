@@ -1,7 +1,7 @@
-<section class="hero-section section mt-5">
-  <div class="container text-center">
-    <h1 class="display-3">¡Los mejores planes de Madrid!</h1>
-    <p class="lead">Descubre todas las actividades y eventos que están ocurriendo en tu ciudad.</p>
-    <!-- Add any call-to-action buttons or elements here -->
+<div class="container my-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each mixedItems}}
+      {{>homeCard this}}
+    {{/each}}
   </div>
-</section>
+</div>

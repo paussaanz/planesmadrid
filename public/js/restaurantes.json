@@ -13,7 +13,9 @@
       "reviews": [
         {"user": "SushiLover", "text": "Fresh and tasty sushi", "rating": 5},
         {"user": "RollMaster", "text": "Creative rolls", "rating": 4}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     },
     {
       "name": "Taco Fiesta",
@@ -28,7 +30,9 @@
       "reviews": [
         {"user": "TacoFan", "text": "Authentic tacos!", "rating": 5},
         {"user": "SalsaDancer", "text": "Love the salsa bar", "rating": 4}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     },
     {
       "name": "Mediterranean Breeze",
@@ -43,7 +47,9 @@
       "reviews": [
         {"user": "HealthyEater", "text": "Delicious and healthy", "rating": 5},
         {"user": "OliveLover", "text": "Amazing olive dishes", "rating": 5}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     },
     {
       "name": "Burger Junction",
@@ -58,7 +64,9 @@
       "reviews": [
         {"user": "BurgerKing", "text": "Juicy burgers", "rating": 4},
         {"user": "FryFan", "text": "Crunchy fries", "rating": 4}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     },
     {
       "name": "Green Garden",
@@ -73,7 +81,9 @@
       "reviews": [
         {"user": "VeggieGuru", "text": "Variety of veg options", "rating": 5},
         {"user": "HealthNut", "text": "Fresh and organic", "rating": 4}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     },
     {
       "name": "Seafood Cove",
@@ -88,7 +98,9 @@
       "reviews": [
         {"user": "Seafoodie", "text": "Fantastic seafood dishes", "rating": 5},
         {"user": "FishLover", "text": "Great fish selection", "rating": 4}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     },
     {
       "name": "Pasta Palace",
@@ -103,7 +115,9 @@
       "reviews": [
         {"user": "PastaPrincess", "text": "Perfect pasta dishes", "rating": 5},
         {"user": "ItalianFoodie", "text": "Authentic Italian taste", "rating": 4}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     },
     {
       "name": "Vegan Delight",
@@ -118,7 +132,9 @@
       "reviews": [
         {"user": "VeganVibes", "text": "Delicious vegan options", "rating": 5},
         {"user": "GreenEater", "text": "Environmentally friendly", "rating": 4}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     },
     {
       "name": "Steakhouse Supreme",
@@ -133,7 +149,9 @@
       "reviews": [
         {"user": "SteakLover", "text": "Juicy and tender steaks", "rating": 5},
         {"user": "Carnivore", "text": "Meat heaven", "rating": 5}
-      ]
+      ],
+      "latitud": 40.4169,
+      "longitud": -3.7038
     }
   ]
   }
