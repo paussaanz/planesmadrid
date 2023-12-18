@@ -1,0 +1,15 @@
+<div class="container my-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each planes}}
+      {{>planCard this}}
+    {{/each}}
+  </div>
+  {{#if currentUser}}
+<section class="btn-section">
+  <div class="container-sm mx-auto text-center">
+    
+    <a href="/planes/form" class="btn btn-info">Crea tu plan</a>
+  </div>
+</section>
+{{/if}}
+</div>

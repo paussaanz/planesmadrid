@@ -1,0 +1,46 @@
+<div class="container my-3">
+  <h1>
+    {{#if isEdit}}
+      Edita este plan
+    {{else}}
+      Crea un nuevo plan
+    {{/if}}
+  </h1>
+
+  {{#if isEdit}}
+    <form action="/planes/{{plan._id}}" method="POST">
+  {{else}}
+    <form action="/planes" method="POST">
+  {{/if}}
+    {{> input value=plan.title name="title" label="Título del Plan" type="text" placeholder="Nombre del plan" error=errors.title}}
+    {{> input value=plan.duration name="duration" label="Duración" type="text" placeholder="Duración del plan" error=errors.duration}}
+    {{> input value=plan.location name="location" label="Ubicación" type="text" placeholder="Punto de encuentro" error=errors.location}}
+    {{> input value=plan.category name="category" label="Categoría" type="text" placeholder="Tipo de plan" error=errors.category}}
+    
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Descripción</label>
+      <textarea
+        required
+        name="description"  id="description" rows="3"
+        class="form-control {{#if errors.description}}is-invalid{{/if}}" placeholder="Describe tu plan">{{plan.description}}</textarea>
+      {{#if errors.description}}
+        <div class="invalid-feedback">{{errors.description}}</div>
+      {{/if}}
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      {{#if isEdit}}
+        Editar este plan
+      {{else}}
+        Crear plan
+      {{/if}}
+    </button>
+
+  </form>
+  {{#if isEdit}}
+    <form class="mt-3" action="/planes/{{plan._id}}/delete" method="POST">
+      <button class="btn btn-danger">Eliminar este plan</button>
+    </form>
+  {{/if}}
+</div>

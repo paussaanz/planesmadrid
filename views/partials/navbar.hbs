@@ -27,8 +27,17 @@
             >Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active text-danger" aria-current="page" href="/subetuplan">Sube tu plan</a>
+            <a class="nav-link active text-danger" aria-current="page" href="/planes">Sube tu plan</a>
           </li>
+          {{#if currentUser}}
+        <li><a
+              class="nav-link active text-danger"
+              aria-current="page"
+              href="/logout"
+            >Logout</a>
+          </li>
+    {{/#if}}
+        </li>
       </ul>
     </div>
   </div>

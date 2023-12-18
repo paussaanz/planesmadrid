@@ -32,9 +32,10 @@ const ActividadSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    category: {
+    category:  {
         type: String,
-        required: true
+        enum: ["Museos", "Tours", "Naturaleza", "Música", "Lugares de interés", "Talleres", "Espectáculos"],
+        default: "Other",
     },
     description: {
         type: String,

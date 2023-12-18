@@ -18,7 +18,7 @@
         "duration": "3 horas",
         "price": 0,
         "location": "Punto de encuentro: Puerta del Sol",
-        "category": "Free Tour",
+        "category": "Tours",
         "description": "Ejemplo",
         "url": "https://ogotours.es/free-tour-madrid/"
       },
@@ -40,7 +40,7 @@
         "duration": "2 horas",
         "price": 0,
         "location": "Mercado de San Miguel, Plaza de San Miguel, s/n",
-        "category": "Rutas",
+        "category": "Tours",
         "description": "Ejemplo",
         "url": "https://buendiatours.com/es/guias/madrid/mercado-san-miguel"
       },
@@ -62,7 +62,7 @@
         "duration": "2 horas",
         "price": 0,
         "location": "Punto de encuentro: Plaza de Santa Ana",
-        "category": "Free Tour",
+        "category": "Tours",
         "description": "Ejemplo",
         "url": "https://www.guruwalk.com/es/madrid/tag/barrio-de-las-letras"
       },
@@ -95,7 +95,7 @@
         "duration": "1.5 horas",
         "price": 20,
         "location": "Palacio Real, Calle Bailén, s/n",
-        "category": "Palacios",
+        "category": "Lugares de Interés",
         "description": "Ejemplo",
         "url": "https://tickets.patrimonionacional.es/es/tickets/palacio-real-de-madrid"
       },
@@ -106,7 +106,7 @@
         "duration": "2 horas",
         "price": 0,
         "location": "Punto de encuentro: Plaza de la Villa",
-        "category": "Free Tour",
+        "category": "Tours",
         "description": "Ejemplo",
         "url": "https://reservafreetour.com/free-tour-madrid-medieval/"
       },
@@ -117,7 +117,7 @@
         "duration": "2 horas",
         "price": 35,
         "location": "Tablao Flamenco 1911, Plaza Santa Ana, 15",
-        "category": "Espectáculo",
+        "category": "Espectáculos",
         "description": "Ejemplo",
         "url": "https://tablaoflamenco1911.com/es/"
       },
@@ -128,7 +128,7 @@
         "duration": "1.5 horas",
         "price": 0,
         "location": "Parque del Retiro",
-        "category": "Parques",
+        "category": "Naturaleza",
         "description": "Ejemplo",
         "url": "https://www.esmadrid.com/informacion-turistica/parque-del-retiro"
       },
@@ -139,7 +139,7 @@
         "duration": "2 horas",
         "price": 0,
         "location": "Punto de encuentro: Plaza Mayor",
-        "category": "Free Tour",
+        "category": "Tours",
         "description": "Ejemplo",
         "url": "https://www.freetour.com/es/madrid/free-tour-madrid-de-los-austrias"
       },
@@ -150,7 +150,7 @@
         "duration": "2.5 horas",
         "price": 15,
         "location": "Inicio en Madrid Río",
-        "category": "Deportes y Naturaleza",
+        "category": "Deporte",
         "description": "Ejemplo",
         "url": "https://www.guiarepsol.com/es/viajar/vamos-de-excursion/ruta-en-bici-por-madrid-rio-y-el-paseo-fluvial-del-manzanares/"
       }
