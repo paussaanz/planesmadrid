@@ -21,7 +21,10 @@ module.exports.getPlanCreateForm = (req, res, next) => {
 
   
   module.exports.doPlanCreate = (req, res, next) => {
-    console.log(req.body)
+    console.log(req.file)
+    if (req.file) {
+      req.body.image = req.file.path;
+    }
     Plan.create({...req.body, user: req.session.currentUser._id})
       .then(PlanDB => {
         res.redirect(`/plans/${PlanDB._id}`);
@@ -72,9 +75,9 @@ module.exports.doPlanEdit = (req, res, next) => {
 module.exports.list = function(req, res, next) {
     Plan.find()
     .populate('user')
-    .then((planes) => 
-    { res.render("plans/list", { planes })
-    console.log(planes)
+    .then((plans) => 
+    { res.render("plans/list", { plans })
+    console.log(plans)
     })
     .catch(err => next(err))
 }

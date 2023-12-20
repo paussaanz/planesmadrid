@@ -71,10 +71,10 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
   //Rutas a Crea tu plan
   ///////Crear
   router.get('/plans/form', authMiddleware.isAuthenticated, plansController.getPlanCreateForm);
-  router.post('/plans', authMiddleware.isAuthenticated, plansController.doPlanCreate);
+  router.post('/plans', authMiddleware.isAuthenticated, upload.single('image'), plansController.doPlanCreate);
   router.get('/plans/:id', plansController.getPlanCreated);
   ///////Editar
-  router.get('/plans/:id/edit', authMiddleware.isAuthenticated, upload.single('image'), plansController.getPlanEditForm);
+  router.get('/plans/:id/edit', authMiddleware.isAuthenticated, plansController.getPlanEditForm);
   router.post('/plans/:id', authMiddleware.isAuthenticated, upload.single('image'), plansController.doPlanEdit);
   ///////Eliminar
   router.post('/plans/:id/delete', authMiddleware.isAuthenticated, plansController.deletePlan);

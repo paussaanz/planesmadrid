@@ -8,9 +8,9 @@
   </h1>
 
   {{#if isEdit}}
-    <form action="/plans/{{plan._id}}" method="POST">
+    <form action="/plans/{{plan._id}}" method="POST" enctype="multipart/form-data">
   {{else}}
-    <form action="/plans" method="POST">
+    <form action="/plans" method="POST" enctype="multipart/form-data">
   {{/if}}
     {{> input value=plan.title name="title" label="Título del Plan" type="text" placeholder="Nombre del plan" error=errors.title}}
     {{> input value=plan.duration name="duration" label="Duración" type="text" placeholder="Duración del plan" error=errors.duration}}
