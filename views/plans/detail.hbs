@@ -8,7 +8,8 @@
     <p class="fw-bold mt-5">Sobre esta actividad</p>
     <p>{{PlanDB.description}}</p>
     <a class="btn btn-primary" href="/plans">Ver todos los planes</a>
-    <a class="btn btn-primary" href="/plans/{{PlanDB._id}}/edit">Editar este producto</a>
+    <a class="btn btn-primary" href="/plans/{{PlanDB._id}}/edit">Editar este plan</a>
+     <form action="/plans/{{PlanDB._id}}/like" method="POST"><button>Corazón</button></form>
   </div>
  
 </div>

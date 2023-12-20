@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Plan = require('../models/Plans.model');
+const Like = require('../models/Likes.model');
 const createError = require('http-errors');
 
 
@@ -80,4 +81,14 @@ module.exports.list = function(req, res, next) {
     console.log(plans)
     })
     .catch(err => next(err))
+}
+
+module.exports.list = function(req, res, next) {
+  Plan.find()
+  .populate('likes')
+  .then((plans) => 
+  { res.render("plans/list", { plans })
+  console.log(plans)
+  })
+  .catch(err => next(err))
 }

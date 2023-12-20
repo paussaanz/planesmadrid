@@ -8,6 +8,7 @@ const restaurantsController = require("../controllers/restaurants.controller")
 const plansController = require("../controllers/plans.controller")
 const upload = require("../config/storage.config");
 const passport = require('passport');
+const likesController = require("../controllers/likes.controller.js")
 
 
 const Activities = require('../models/Activities.model');
@@ -80,5 +81,8 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
   router.post('/plans/:id/delete', authMiddleware.isAuthenticated, plansController.deletePlan);
   //////Lista de creados
   router.get("/plans", plansController.list);
+  
+  //Rutas a like
+  router.post('/plans/:planId/like', authMiddleware.isAuthenticated, likesController.doLikeCreate);
   
   module.exports = router;
