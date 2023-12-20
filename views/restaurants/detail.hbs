@@ -2,9 +2,9 @@
     <h1>{{title}}</h1>
     <img src="{{imageUrl}}" alt="Imagen del evento" class="imagen-evento">
     <div class="detalles-evento">
-        <p><strong>Cocina:</strong> {{restaurante.cuisine}}</p>
-        <p><strong>Ubicación:</strong> {{restaurante.address.street}}, {{address.city}}, {{address.state}}</p>
-        <p><strong>Rating:</strong> {{resrating}}</p>
+        <p><strong>Cocina:</strong> {{restaurant.cuisine}}</p>
+        <p><strong>Ubicación:</strong> {{restaurant.address.street}}, {{address.city}}, {{address.state}}</p>
+        <p><strong>Rating:</strong> {{restaurant.rating}}</p>
         <p><strong>Enlace:</strong> <a href="{{enlace}}">Enlace al restaurante</a></p>
 
         <div id="map"></div>
@@ -13,12 +13,12 @@
     <p>Descripción detallada del evento...</p>
 </div>
 <script>
-    let map = L.map('map').setView([{{restaurante.latitud}}, {{restaurante.longitud}}], 13);
+    let map = L.map('map').setView([{{restaurant.latitud}}, {{restaurant.longitud}}], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    const marker = L.marker([{{restaurante.latitud}}, {{restaurante.longitud}}]).addTo(map);
+    const marker = L.marker([{{restaurant.latitud}}, {{restaurant.longitud}}]).addTo(map);
 </script>

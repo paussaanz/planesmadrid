@@ -9,5 +9,9 @@
     </div>
 
     <h2>Email: {{currentUser.email}}</h2>
+  
+    {{#each user.plans as |plan|}}
+    <p>{{this}}</p>
+    {{/each}}
   </div>
 </div>

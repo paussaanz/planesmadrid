@@ -1,0 +1,27 @@
+<div class="container my-3 row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <img class="img-fluid" src="{{activity.imageUrl}}" />
+  </div>
+  <div class="col">
+    <h2>{{activity.title}}</h2>
+    <p class="text-danger fs-2 fw-bold">{{activity.price}}€</p>
+    <p class="text-danger fs-2 fw-bold">{{activity.location}}€</p>
+    <p class="text-danger fs-2 fw-bold">{{activity.date}}€</p>
+    <p class="fw-bold mt-5">Sobre esta actividad</p>
+    <p>{{activity.description}}</p>
+            <div id="map"></div>
+
+    <a class="btn btn-primary" href="/activities">Ver más activities</a>
+  </div>
+
+</div>
+<script>
+    let map = L.map('map').setView([{{activity.latitud}}, {{activity.longitud}}], 13);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const marker = L.marker([{{activity.latitud}}, {{activity.longitud}}]).addTo(map);
+</script>

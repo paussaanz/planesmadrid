@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
-const Evento = require('../models/Eventos.model');
-const { eventos } = require('../public/js/eventos.json');
+const Event = require('../models/Events.model');
+const { events } = require('../public/js/events.json');
 require('../config/db.config');
 
 mongoose.connection.once('open', () => {
-  mongoose.connection.dropCollection('eventos')
+  mongoose.connection.dropCollection('events')
     .then(() => {
       console.log('DB cleared');
     })
     .then(() => {
-      return Evento.create(eventos);
+      return Event.create(events);
     })
-    .then((eventosCB) => {
-      eventosCB.forEach(evento => console.log(`${evento.title} has been created`));
+    .then((eventsCB) => {
+      eventsCB.forEach(event => console.log(`${event.title} has been created`));
     })
     .catch(err => console.error(err))
     .finally(() => {

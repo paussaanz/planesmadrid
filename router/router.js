@@ -1,16 +1,18 @@
 const router = require("express").Router();
-const actividadesController = require("../controllers/actividades.controller");
+const activitiesController = require("../controllers/activities.controller");
 const authController = require("../controllers/auth.controller");
 const usersController = require("../controllers/users.controller");
 const authMiddleware = require("../middlewares/auth.middlewares");
-const eventosController = require("../controllers/eventos.controller")
-const restaurantesController = require("../controllers/restaurantes.controller")
+const eventsController = require("../controllers/events.controller")
+const restaurantsController = require("../controllers/restaurants.controller")
+const plansController = require("../controllers/plans.controller")
+const upload = require("../config/storage.config");
 const passport = require('passport');
 
 
-const Actividades = require('../models/Actividades.model');
-const Eventos = require('../models/Eventos.model');
-const Restaurantes = require('../models/Restaurantes.model');
+const Activities = require('../models/Activities.model');
+const Events = require('../models/Events.model');
+const Restaurants = require('../models/Restaurants.model');
 
 const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.email',
@@ -19,12 +21,12 @@ const GOOGLE_SCOPES = [
 
 router.get("/", (req, res, next) => {
   Promise.all([
-      Actividades.find().limit(5),
-      Eventos.find().limit(5),
-      Restaurantes.find().limit(5)
+      Activities.find().limit(5),
+      Events.find().limit(5),
+      Restaurants.find().limit(5)
   ])
-      .then(([actividades, eventos, restaurantes]) => {
-          const mixedItems = shuffle([...actividades, ...eventos, ...restaurantes]);
+      .then(([activities, events, restaurants]) => {
+          const mixedItems = shuffle([...activities, ...events, ...restaurants]);
           res.render('home', { mixedItems });
 
       })
@@ -46,26 +48,37 @@ router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authentic
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
 
 // Rutas a eventos
-  router.get("/eventos", eventosController.home);
-  router.get("/eventos/:id", eventosController.detail)
+  router.get("/events", eventsController.home);
+  router.get("/events/:id", eventsController.detail)
 
   //Rutas a restaurantes
-  router.get("/restaurantes", restaurantesController.home);
-  router.get("/restaurantes/:id", restaurantesController.detail)
+  router.get("/restaurants", restaurantsController.home);
+  router.get("/restaurants/:id", restaurantsController.detail)
 
-  router.get("/actividades", actividadesController.list);
-
-  router.get("/actividades/:id", actividadesController.getActividadDetail);
+  //Rutas a activities
+  router.get("/activities", activitiesController.list);
+  router.get("/activities/:id", activitiesController.getActivityDetail);
   
-  
+  //Rutas a usuarios
   router.get("/login", authMiddleware.isNotAuthenticated, authController.login);
   router.post("/login", authMiddleware.isNotAuthenticated, authController.doLogin);
   router.get("/register", authMiddleware.isNotAuthenticated, authController.register);
   router.post("/register", authMiddleware.isNotAuthenticated, authController.doRegister);
   router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
   router.get("/activate/:token", authController.activate);
-
   router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 
+  //Rutas a Crea tu plan
+  ///////Crear
+  router.get('/plans/form', authMiddleware.isAuthenticated, plansController.getPlanCreateForm);
+  router.post('/plans', authMiddleware.isAuthenticated, plansController.doPlanCreate);
+  router.get('/plans/:id', plansController.getPlanCreated);
+  ///////Editar
+  router.get('/plans/:id/edit', authMiddleware.isAuthenticated, upload.single('image'), plansController.getPlanEditForm);
+  router.post('/plans/:id', authMiddleware.isAuthenticated, upload.single('image'), plansController.doPlanEdit);
+  ///////Eliminar
+  router.post('/plans/:id/delete', authMiddleware.isAuthenticated, plansController.deletePlan);
+  //////Lista de creados
+  router.get("/plans", plansController.list);
   
   module.exports = router;

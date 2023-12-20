@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-const categoriesAllowed = ["Deportes", "Música", "Exposiciones temporales", "Otro", "Arte", "Festivales"];
-
-const EventoSchema = mongoose.Schema({
+const ActivitySchema = mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -34,10 +32,25 @@ const EventoSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    category: {
-        type: String, 
-        enum: categoriesAllowed,
+    category:  {
+        type: String,
+        enum: ["Museos", "Tours", "Naturaleza", "Música", "Lugares de interés", "Talleres", "Espectáculos", "Deporte"],
+        default: "Other",
+    },
+    description: {
+        type: String,
         required: true
+    },
+    url: {
+        type: String,
+        required: true,
+        validate: {
+            validator: function(value) {
+                const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+                return urlRegex.test(value);
+            },
+            message: 'La URL proporcionada no es válida'
+        }
     },
     latitud: {
         type: Number,
@@ -49,5 +62,5 @@ const EventoSchema = mongoose.Schema({
       }
 });
 
-const Evento = mongoose.model("Evento", EventoSchema);
-module.exports = Evento;
+const Activity = mongoose.model("Activity", ActivitySchema);
+module.exports = Activity;

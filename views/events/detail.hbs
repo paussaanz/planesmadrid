@@ -2,11 +2,11 @@
         <h1>{{title}}</h1>
         <img src="{{imageUrl}}" alt="Imagen del evento" class="imagen-evento">
         <div class="detalles-evento">
-            <p><strong>Fecha:</strong> {{evento.date}}</p>
-            <p><strong>Duración:</strong> {{evento.duration}}</p>
-            <p><strong>Precio:</strong> ${{evento.price}}</p>
-            <p><strong>Ubicación:</strong> {{evento.location}}</p>
-            <p><strong>Categoría:</strong> {{evento.category}}</p>
+            <p><strong>Fecha:</strong> {{event.date}}</p>
+            <p><strong>Duración:</strong> {{event.duration}}</p>
+            <p><strong>Precio:</strong> ${{event.price}}</p>
+            <p><strong>Ubicación:</strong> {{event.location}}</p>
+            <p><strong>Categoría:</strong> {{event.category}}</p>
             <p><strong>Enlace:</strong> <a href="{{enlace}}">Enlace al evento</a></p>
         </div>
                 <div id="map"></div>
@@ -14,12 +14,12 @@
         <p>Descripción detallada del evento...</p>
     </div>
     <script>
-    let map = L.map('map').setView([{{evento.latitud}}, {{evento.longitud}}], 13);
+    let map = L.map('map').setView([{{event.latitud}}, {{event.longitud}}], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    const marker = L.marker([{{evento.latitud}}, {{evento.longitud}}]).addTo(map);
+    const marker = L.marker([{{event.latitud}}, {{event.longitud}}]).addTo(map);
 </script>

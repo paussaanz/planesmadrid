@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
-const Actividad = require('../models/Actividades.model');
-const { actividades } = require('../public/js/actividades.json');
+const Restaurant = require('../models/Restaurants.model');
+const { restaurants } = require('../public/js/restaurants.json');
 require('../config/db.config');
 
 mongoose.connection.once('open', () => {
-  mongoose.connection.dropCollection('actividades')
+  mongoose.connection.dropCollection('restaurants')
     .then(() => {
       console.log('DB cleared');
     })
     .then(() => {
-      return Actividad.create(actividades);
+      return Restaurant.create(restaurants);
     })
-    .then((actividadesDB) => {
-      actividadesDB.forEach(actividad => console.log(`${actividad.title} has been created`));
+    .then((restaurantsCB) => {
+      console.log(restaurantsCB)
+        restaurantsCB.forEach(restaurant => console.log(`${restaurant.name} has been created`));
     })
     .catch(err => console.error(err))
     .finally(() => {
@@ -24,3 +25,4 @@ mongoose.connection.once('open', () => {
       .finally(() => process.exit(0))
     })
 })
+
