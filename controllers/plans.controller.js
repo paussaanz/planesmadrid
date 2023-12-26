@@ -1,15 +1,19 @@
 const mongoose = require('mongoose');
 const Plan = require('../models/Plans.model');
 const User = require('../models/User.model');
+const Like = require('../models/Likes.model');
 const createError = require('http-errors');
 
 
-module.exports.list = function (req, res, next) {
+//Aquí te dejo también la parte del list con e lpopulate de los likes
+module.exports.list = function(req, res, next) {
   Plan.find()
-    .then((plans) => {
-      res.render("plans/list", { plans })
-    })
-    .catch(err => next(err))
+  .populate('likes')
+  .then((plans) => 
+  { res.render("plans/list", { plans })
+  console.log(plans)
+  })
+  .catch(err => next(err))
 }
 
 module.exports.getPlanCreateForm = (req, res, next) => {

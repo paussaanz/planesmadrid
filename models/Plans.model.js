@@ -26,6 +26,10 @@ const PlanSchema = mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'User'
     },
+    like:{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Like'
+    },
     image: {
         type: String,
         validate: {
@@ -51,6 +55,12 @@ PlanSchema.virtual("comments", {
 });
 
 
+PlanSchema.virtual('likes', {
+    ref: 'Like',
+    localField: '_id',
+    foreignField: 'like',
+    justOne: false,
+  });
 
 
 const Plan = mongoose.model("Plan", PlanSchema);

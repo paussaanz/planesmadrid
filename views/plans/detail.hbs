@@ -9,7 +9,10 @@
     <p>{{plan.description}}</p>
     <a class="btn btn-primary" href="/plans">Ver todos los planes</a>
     <a class="btn btn-primary" href="/plans/{{plan._id}}/edit">Editar plan</a>
+    <!-- Aquí tienes el botón de like -->
+    <form action="/plans/{{PlanDB._id}}/like" method="POST"><button>Corazón</button></form>
 
+    <!-- Esto es la lógica del botón de guardar -->
     {{#if isPlanSaved}}
     <form action="/plans/{{plan._id}}/unsave" method="post">
       <button type="submit" class="btn btn-danger">Eliminar de guardados</button>
