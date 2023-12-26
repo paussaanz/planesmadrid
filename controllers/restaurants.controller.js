@@ -8,11 +8,14 @@ module.exports.home = (req, res, next) => {
   };
 
 module.exports.detail = (req, res, next) => {
-  const { id } = req.params;
-  console.log(id)
-  Restaurant.findById(id)
+  Restaurant.findById(req.params.id)
+  .populate({
+    path: 'comments',
+    populate: {
+      path: 'user',
+    }
+  })
   .then((restaurant) => {
-    console.log(restaurant)
     res.render("restaurants/detail", { restaurant });
   })
   .catch((err) => next(err));

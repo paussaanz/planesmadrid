@@ -6,6 +6,7 @@ const authMiddleware = require("../middlewares/auth.middlewares");
 const eventsController = require("../controllers/events.controller")
 const restaurantsController = require("../controllers/restaurants.controller")
 const plansController = require("../controllers/plans.controller")
+const commentsController = require("../controllers/comments.controller")
 const upload = require("../config/storage.config");
 const passport = require('passport');
 
@@ -19,6 +20,7 @@ const GOOGLE_SCOPES = [
   'https://www.googleapis.com/auth/userinfo.profile'
 ]
 
+//Aquí se renderiza en la vista home un mix de los post del resto de páginas
 router.get("/", (req, res, next) => {
   Promise.all([
       Activities.find().limit(5),
@@ -43,6 +45,7 @@ function shuffle(array) {
   }
   return array;
 }
+
 // Google auth
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
@@ -72,7 +75,7 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
   ///////Crear
   router.get('/plans/form', authMiddleware.isAuthenticated, plansController.getPlanCreateForm);
   router.post('/plans', authMiddleware.isAuthenticated, upload.single('image'), plansController.doPlanCreate);
-  router.get('/plans/:id', plansController.getPlanCreated);
+  router.get('/plans/:id', plansController.getPlanDetail);
   ///////Editar
   router.get('/plans/:id/edit', authMiddleware.isAuthenticated, plansController.getPlanEditForm);
   router.post('/plans/:id', authMiddleware.isAuthenticated, upload.single('image'), plansController.doPlanEdit);
@@ -80,5 +83,18 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
   router.post('/plans/:id/delete', authMiddleware.isAuthenticated, plansController.deletePlan);
   //////Lista de creados
   router.get("/plans", plansController.list);
+
+  // Comments
+  router.post("/comments/:id/activity", authMiddleware.isAuthenticated, commentsController.doCreateActivity);
+  router.post("/comments/:id/event", authMiddleware.isAuthenticated, commentsController.doCreateEvent);
+  router.post("/comments/:id/plan", authMiddleware.isAuthenticated, commentsController.doCreatePlan);
+  router.post("/comments/:id/restaurant", authMiddleware.isAuthenticated, commentsController.doCreateRestaurant);
+  //router.get("/comments/:id/delete", authMiddleware.isAuthenticated, commentsController.delete);
+
+  // Save plans
+  router.post("/plans/:id/save", authMiddleware.isAuthenticated, plansController.saveAndListPlans)
+  router.post("/plans/:id/unsave", authMiddleware.isAuthenticated, plansController.unsavePlan)
+  
+  
   
   module.exports = router;

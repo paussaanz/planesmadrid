@@ -8,9 +8,13 @@ module.exports.home = (req, res, next) => {
   };
 
 module.exports.detail = (req, res, next) => {
-  const { id } = req.params;
-  console.log(id)
-  Event.findById(id)
+  Event.findById(req.params.id)
+  .populate({
+    path: 'comments',
+    populate: {
+      path: 'user',
+    }
+  })
   .then((event) => {
     console.log(event)
     res.render("events/detail", { event });

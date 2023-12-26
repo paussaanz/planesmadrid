@@ -8,14 +8,14 @@ module.exports.list = function(req, res, next) {
 
 module.exports.getActivityDetail = (req, res, next) => {
     Activity.findById(req.params.id)
+    .populate({
+      path: 'comments',
+      populate: {
+        path: 'user',
+      }
+    })
       .then((activity) => {
-        if (activity) {
           res.render('activities/activities-detail', { activity });
-        } else {
-          next(createError(404, 'No hemos encontrado este smartphone'))
-        }
       })
       .catch(err => next(err))
   }
-
-  

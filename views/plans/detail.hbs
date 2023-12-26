@@ -2,13 +2,25 @@
   <div class="col">
   </div>
   <div class="col">
-    <h2>{{PlanDB.title}}</h2>
-    <p class="text-danger fs-2 fw-bold">{{PlanDB.duration}}€</p>
-    <p class="text-danger fs-2 fw-bold">{{PlanDB.location}}€</p>
+    <h2>{{plan.title}}</h2>
+    <p class="text-danger fs-2 fw-bold">{{plan.duration}}€</p>
+    <p class="text-danger fs-2 fw-bold">{{plan.location}}€</p>
     <p class="fw-bold mt-5">Sobre esta actividad</p>
-    <p>{{PlanDB.description}}</p>
+    <p>{{plan.description}}</p>
     <a class="btn btn-primary" href="/plans">Ver todos los planes</a>
-    <a class="btn btn-primary" href="/plans/{{PlanDB._id}}/edit">Editar este producto</a>
+    <a class="btn btn-primary" href="/plans/{{plan._id}}/edit">Editar plan</a>
+
+    {{#if isPlanSaved}}
+    <form action="/plans/{{plan._id}}/unsave" method="post">
+      <button type="submit" class="btn btn-danger">Eliminar de guardados</button>
+    </form>
+    {{else}}
+    <form action="/plans/{{plan._id}}/save" method="post">
+      <button type="submit" class="btn btn-primary">Guardar este plan</button>
+    </form>
+    {{/if}}
+
+    {{>comments entity=plan type="plan"}}
   </div>
- 
+
 </div>

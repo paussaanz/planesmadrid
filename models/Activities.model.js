@@ -62,5 +62,12 @@ const ActivitySchema = mongoose.Schema({
       }
 });
 
+ActivitySchema.virtual("comments", {
+    ref: "Comment",
+    localField: "_id",
+    foreignField: "activity",
+    justOne: false,
+  });
+
 const Activity = mongoose.model("Activity", ActivitySchema);
 module.exports = Activity;

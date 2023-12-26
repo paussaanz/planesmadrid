@@ -1,0 +1,23 @@
+ <div class="col-12">
+        <h2>Comentarios</h2>
+        
+        <form action="/comments/{{entity._id}}/{{type}}" method="POST">
+            <div class="mb-3">
+                <textarea class="form-control" name="content" id="comment" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Comentar</button>
+        </form>
+    </div>
+        {{#each entity.comments as |comment|}}
+        <div class="card my-2">
+            <div class="card-body">
+                <p class="card-text">{{comment.content}}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <small class="text-body-secondary">Por {{comment.user.username}}</small>
+                <a href="/comments/{{../entity._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="16"
+                        style="color: red;"></i></a>
+            </div>
+        </div>
+        {{/each}}
+        

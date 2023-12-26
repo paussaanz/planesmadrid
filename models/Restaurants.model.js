@@ -53,6 +53,12 @@ const RestaurantSchema = new mongoose.Schema({
   }
 });
 
+RestaurantSchema.virtual("comments", {
+  ref: "Comment",
+  localField: "_id",
+  foreignField: "restaurant",
+  justOne: false,
+});
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);
 
 module.exports = Restaurant;

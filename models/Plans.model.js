@@ -13,30 +13,43 @@ const PlanSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    category:  {
+    category: {
         type: String,
-      
+        enum: ['Adventure', 'Culture', 'Gastronomy', 'Relax', 'Sports', 'Other'],
         default: "Other",
     },
     description: {
         type: String,
         required: true
     },
-    user:{
+    user: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'User'
     },
     image: {
         type: String,
         validate: {
-            validator: function(value) {
+            validator: function (value) {
                 const imageRegex = /\.(jpg|jpeg|png|gif|bmp)$/i;
                 return imageRegex.test(value);
             },
             message: 'La URL de la imagen proporcionada no es válida'
         }
-}
+    },
+    savedByUsers: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User' 
+    }]
+
 });
+
+PlanSchema.virtual("comments", {
+    ref: "Comment",
+    localField: "_id",
+    foreignField: "plan",
+    justOne: false,
+});
+
 
 
 

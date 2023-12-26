@@ -1,50 +1,88 @@
 <div class="container my-3">
   <h1>
     {{#if isEdit}}
-      Edita este plan
+    Edita este plan
     {{else}}
-      Crea un nuevo plan
+    Crea un nuevo plan
     {{/if}}
   </h1>
 
   {{#if isEdit}}
-    <form action="/plans/{{plan._id}}" method="POST" enctype="multipart/form-data">
-  {{else}}
+  <form action="/plans/{{plan._id}}" method="POST" enctype="multipart/form-data">
+    {{else}}
     <form action="/plans" method="POST" enctype="multipart/form-data">
-  {{/if}}
-    {{> input value=plan.title name="title" label="Título del Plan" type="text" placeholder="Nombre del plan" error=errors.title}}
-    {{> input value=plan.duration name="duration" label="Duración" type="text" placeholder="Duración del plan" error=errors.duration}}
-    {{> input value=plan.location name="location" label="Ubicación" type="text" placeholder="Punto de encuentro" error=errors.location}}
-    {{> input value=plan.category name="category" label="Categoría" type="text" placeholder="Tipo de plan" error=errors.category}}
+      {{/if}}
 
-<div class="mb-3">
-      <label for="image" style="color: black;" class="form-label">Image</label>
-      <input placeholder="Upload an image" type="file" name="image" class="{{#if errors}}is-invalid{{/if}} form-control" id="image">
-    </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Título del Plan</label>
+        <input type="text" name="title" id="title" placeholder="Nombre del plan" value="{{plan.title}}"
+          class="form-control {{#if errors.title}}is-invalid{{/if}}">
+        {{#if errors.title}}
+        <div class="invalid-feedback">{{errors.title}}</div>
+        {{/if}}
+      </div>
 
-    <div class="mb-3">
-      <label for="description" class="form-label">Descripción</label>
-      <textarea
-        required
-        name="description"  id="description" rows="3"
-        class="form-control {{#if errors.description}}is-invalid{{/if}}" placeholder="Describe tu plan">{{plan.description}}</textarea>
-      {{#if errors.description}}
+      <div class="mb-3">
+        <label for="duration" class="form-label">Duración</label>
+        <input type="text" name="duration" id="duration" placeholder="Duración del plan" value="{{plan.duration}}"
+          class="form-control {{#if errors.duration}}is-invalid{{/if}}">
+        {{#if errors.duration}}
+        <div class="invalid-feedback">{{errors.duration}}</div>
+        {{/if}}
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Ubicación</label>
+        <input type="text" name="location" id="location" placeholder="Punto de encuentro" value="{{plan.location}}"
+          class="form-control {{#if errors.location}}is-invalid{{/if}}">
+        {{#if errors.location}}
+        <div class="invalid-feedback">{{errors.location}}</div>
+        {{/if}}
+      </div>
+
+      <div class="mb-3">
+        <label for="category" style="color: #3498db;" class="form-label">Categoría</label>
+        <select name="category" class="form-select" aria-label="Default select example">
+          {{#each categoryEnumValues}}
+          {{#if ../plan}}
+          <option value="{{this}}" {{#isSelected selectValue=this dbValue=../plan.category}}selected{{/isSelected}}>
+            {{this}}</option>
+          {{else}}
+          <option value="{{this}}" {{#isSelected selectValue=this dbValue='Other' }}selected{{/isSelected}}>{{this}}
+          </option>
+          {{/if}}
+          {{/each}}
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" style="color: black;" class="form-label">Image</label>
+        <input placeholder="Upload an image" type="file" name="image"
+          class="{{#if errors}}is-invalid{{/if}} form-control" id="image">
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Descripción</label>
+        <textarea required name="description" id="description" rows="3"
+          class="form-control {{#if errors.description}}is-invalid{{/if}}"
+          placeholder="Describe tu plan">{{plan.description}}</textarea>
+        {{#if errors.description}}
         <div class="invalid-feedback">{{errors.description}}</div>
-      {{/if}}
-    </div>
+        {{/if}}
+      </div>
 
-    <button type="submit" class="btn btn-primary">
-      {{#if isEdit}}
+      <button type="submit" class="btn btn-primary">
+        {{#if isEdit}}
         Editar este plan
-      {{else}}
+        {{else}}
         Crear plan
-      {{/if}}
-    </button>
-
-  </form>
-  {{#if isEdit}}
+        {{/if}}
+      </button>
+      {{#if isEdit}}
+    </form>
+    
     <form class="mt-3" action="/plans/{{plan._id}}/delete" method="POST">
       <button class="btn btn-danger">Eliminar este plan</button>
     </form>
-  {{/if}}
+    {{/if}}
 </div>

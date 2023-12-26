@@ -33,6 +33,7 @@ const UserSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  
 });
 
 UserSchema.pre("save", function (next) {
@@ -59,6 +60,13 @@ UserSchema.virtual('plans', {
   foreignField: 'user',
   justOne: false,
 })
+
+UserSchema.virtual('savedPlans', {
+  ref: 'Plan',
+  localField: '_id',
+  foreignField: 'savedByUsers',
+  justOne: false,
+});
 
 const User = mongoose.model("User", UserSchema);
 module.exports = User;

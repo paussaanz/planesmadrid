@@ -12,6 +12,8 @@
                 <div id="map"></div>
 
         <p>Descripción detallada del evento...</p>
+        {{>comments entity=event type="event"}}
+
     </div>
     <script>
     let map = L.map('map').setView([{{event.latitud}}, {{event.longitud}}], 13);
