@@ -34,5 +34,6 @@
   "bin": {
     "planesmadrid": "bin/activitiesSeed.js"
   },
+  "devDependencies": {},
   "description": ""
 }

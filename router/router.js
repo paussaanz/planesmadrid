@@ -70,7 +70,11 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
   router.post("/register", authMiddleware.isNotAuthenticated, authController.doRegister);
   router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
   router.get("/activate/:token", authController.activate);
+
+  //Rutas a perfil y editar
   router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
+  router.get("/users/:id/form", authMiddleware.isAuthenticated, usersController.editProfileForm)
+  router.post("/profile", usersController.doEditProfile);
 
   //Rutas a Crea tu plan
   ///////Crear
@@ -92,13 +96,15 @@ router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authContr
   router.post("/comments/:id/restaurant", authMiddleware.isAuthenticated, commentsController.doCreateRestaurant);
   //router.get("/comments/:id/delete", authMiddleware.isAuthenticated, commentsController.delete);
 
+    //Rutas a like
+    router.post('/plans/:planId/like', authMiddleware.isAuthenticated, likesController.doLikeCreate);
+
   // Save plans
   router.post("/plans/:id/save", authMiddleware.isAuthenticated, plansController.saveAndListPlans)
   router.post("/plans/:id/unsave", authMiddleware.isAuthenticated, plansController.unsavePlan)
   
   
   
-  //Rutas a like
-  router.post('/plans/:planId/like', authMiddleware.isAuthenticated, likesController.doLikeCreate);
+
   
   module.exports = router;

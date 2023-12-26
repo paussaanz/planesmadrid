@@ -11,3 +11,26 @@ const User = require('../models/User.model')
     })
       .catch((err) => next(err));
   }
+
+  module.exports.editProfileForm = (req, res, next) => {
+    const userId = req.session.currentUser._id;
+  
+    User.findById(userId)
+      .then(user => {
+        res.render('users/form', { user });
+      })
+      .catch(err => next(err));
+  };
+  
+  // Controlador para actualizar la información del perfil
+  module.exports.doEditProfile = (req, res, next) => {
+    const userId = req.session.currentUser._id;
+    const { username, email } = req.body;
+  
+    // Actualizar la información del usuario en la base de datos
+    User.findByIdAndUpdate(userId, { username, email }, { new: true })
+      .then(updatedUser => {
+        res.render('users/profile', updatedUser);
+      })
+      .catch(err => next(err));
+  };

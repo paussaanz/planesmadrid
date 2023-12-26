@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Plan = require('../models/Plans.model');
 const User = require('../models/User.model');
 const Like = require('../models/Likes.model');
+const likesController = require('../controllers/likes.controller');
 const createError = require('http-errors');
 
 
@@ -32,6 +33,8 @@ module.exports.doPlanCreate = (req, res, next) => {
     .catch(err => next(err))
 }
 
+
+
 module.exports.getPlanDetail = (req, res, next) => {
   Plan.findById(req.params.id)
   .populate({
@@ -43,7 +46,7 @@ module.exports.getPlanDetail = (req, res, next) => {
   .then(plan => {
       const userId = req.session.currentUser._id;
       const isPlanSaved = plan.savedByUsers.includes(userId);
-        res.render('plans/detail', { plan, isPlanSaved });
+        res.render('plans/detail', { plan, isPlanSaved});
      
     })
     .catch(err => next(err))

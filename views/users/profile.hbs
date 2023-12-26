@@ -1,6 +1,11 @@
 <div class="profile-page">
   <div class="container profile-container">
-    <h1>{{currentUser.username}}'s Profile</h1>
+    <div class="profile-header">
+      <h1>{{currentUser.username}}'s Profile</h1>
+      <p>Username: {{currentUser.username}}</p>
+      <p>Email: {{currentUser.email}}</p>
+      <a href="/users/{{currentUser._id}}/form" class="btn btn-primary">Editar Perfil</a>
+    </div>
 
     <img class="profile-image" src="https://picsum.photos/150" alt="Profile Image">
 
@@ -8,19 +13,16 @@
       <i class="fas fa-user-circle"></i>
     </div>
 
-
     <h2>Created Plans</h2>
 
     {{#each user.plans as |plan|}}
-    {{>planCard this}}
+      {{>planCard this}}
     {{/each}}
 
     <h2>Saved Plans</h2>
-  
-      {{#each user.savedPlans as |plan|}}
-      {{>planCard this}}
-      {{/each}}
-   
 
+    {{#each user.savedPlans as |plan|}}
+      {{>planCard this}}
+    {{/each}}
   </div>
 </div>

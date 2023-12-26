@@ -7,6 +7,7 @@ const passport = require("passport");
 
 require("./config/db.config"); // es como si pusieramos todas las lineas del db.confgi aquí, pero somos mejores que eso.
 require("./config/passport.config");
+require("./config/hbs.config");
 
 const app = express();
 
