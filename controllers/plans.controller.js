@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 const Plan = require('../models/Plans.model');
 const User = require('../models/User.model');
-const Like = require('../models/Likes.model');
-const likesController = require('../controllers/likes.controller');
 const createError = require('http-errors');
 
 
 //Aquí te dejo también la parte del list con e lpopulate de los likes
 module.exports.list = function(req, res, next) {
   Plan.find()
-  .populate('likes')
+  .populate('likedByUsers')
   .then((plans) => 
   { res.render("plans/list", { plans })
   console.log(plans)
@@ -46,7 +44,9 @@ module.exports.getPlanDetail = (req, res, next) => {
   .then(plan => {
       const userId = req.session.currentUser._id;
       const isPlanSaved = plan.savedByUsers.includes(userId);
-        res.render('plans/detail', { plan, isPlanSaved});
+      const isPlanLiked = plan.likedByUsers.includes(userId);
+
+      res.render('plans/detail', { plan, isPlanSaved, isPlanLiked});
      
     })
     .catch(err => next(err))
@@ -104,7 +104,7 @@ module.exports.saveAndListPlans = function (req, res, next) {
       return User.findById(userId).populate('savedPlans');
     })
     .then(user => {
-      res.redirect('/profile');
+      res.redirect(`/plans/${planId}`);
     })
     .catch(err => next(err))
 };
@@ -119,7 +119,35 @@ module.exports.unsavePlan = function (req, res, next) {
       return User.findById(userId).populate('savedPlans');
     })
     .then(user => {
-      res.redirect('/profile');
+      res.redirect(`/plans/${planId}`);
+    })
+    .catch(err => next(err))
+};
+
+module.exports.likedPlans = function (req, res, next) {
+  const planId = req.params.id;
+  const userId = req.session.currentUser._id;
+
+  Plan.findByIdAndUpdate(planId, { $addToSet: { likedByUsers: userId } })
+    .then(() => {
+      return User.findById(userId).populate('likedPlans');
+    })
+    .then(user => {
+      res.redirect(`/plans/${planId}`);
+    })
+    .catch(err => next(err))
+};
+
+module.exports.dislikePlans = function (req, res, next) {
+  const planId = req.params.id;
+  const userId = req.session.currentUser._id;
+  console.log ("USER ID:", userId)
+  Plan.findByIdAndUpdate(planId, { $pull: { likedByUsers: userId } })
+    .then(() => {
+      return User.findById(userId).populate('likedPlans');
+    })
+    .then(user => {
+      res.redirect(`/plans/${planId}`);
     })
     .catch(err => next(err))
 };

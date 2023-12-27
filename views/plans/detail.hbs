@@ -12,23 +12,25 @@
     
     <!-- Aquí tienes el botón de like -->
       
-  <form action="/plans/{{plan._id}}/like" method="POST">
 {{#if isPlanLiked}}
+  
+  <form action="/plans/{{plan._id}}/dislike" method="POST">
     <button type="submit" class="btn btn-primary">❤️</button>
+</form>
   {{else}}
-
+  <form action="/plans/{{plan._id}}/like" method="POST">
 <button type="submit" class="btn btn-primary">🤍</button>
+</form>
     <!-- Si el usuario no ha dado like, mostrar un corazón vacío -->
   {{/if}}
-</form>
 
     <!-- Esto es la lógica del botón de guardar -->
     {{#if isPlanSaved}}
-    <form action="/plans/{{plan._id}}/unsave" method="post">
+    <form action="/plans/{{plan._id}}/unsave" method="POST">
       <button type="submit" class="btn btn-danger">Eliminar de guardados</button>
     </form>
     {{else}}
-    <form action="/plans/{{plan._id}}/save" method="post">
+    <form action="/plans/{{plan._id}}/save" method="POST">
       <button type="submit" class="btn btn-primary">Guardar este plan</button>
     </form>
     {{/if}}

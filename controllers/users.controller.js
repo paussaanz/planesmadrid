@@ -30,7 +30,7 @@ const User = require('../models/User.model')
     // Actualizar la información del usuario en la base de datos
     User.findByIdAndUpdate(userId, { username, email }, { new: true })
       .then(updatedUser => {
-        res.render('users/profile', updatedUser);
+        res.render('users/profile', {currentUser: updatedUser});
       })
       .catch(err => next(err));
   };

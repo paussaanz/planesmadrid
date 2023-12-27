@@ -43,6 +43,10 @@ const PlanSchema = mongoose.Schema({
     savedByUsers: [{ 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User' 
+    }],
+    likedByUsers: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User' 
     }]
 
 });
@@ -55,12 +59,6 @@ PlanSchema.virtual("comments", {
 });
 
 
-PlanSchema.virtual('likes', {
-    ref: 'Like',
-    localField: '_id',
-    foreignField: 'like',
-    justOne: false,
-  });
 
 
 const Plan = mongoose.model("Plan", PlanSchema);

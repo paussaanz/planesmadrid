@@ -68,5 +68,12 @@ UserSchema.virtual('savedPlans', {
   justOne: false,
 });
 
+UserSchema.virtual('likedPlans', {
+  ref: 'Plan',
+  localField: '_id',
+  foreignField: 'savedByUsers',
+  justOne: false,
+});
+
 const User = mongoose.model("User", UserSchema);
 module.exports = User;
