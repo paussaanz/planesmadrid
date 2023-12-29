@@ -1,19 +1,173 @@
-.tarjeta-evento {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/*Estilos generales*/
+* {
+    margin: 0;
 }
 
-.imagen-evento {
-    max-width: 100%;
-    height: auto;
+ul {
+    list-style: none;
+    margin:0;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+p,
+.paragraph {
+    font-size: 15px;
+    color: #666666;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0 0 10px;
+}
+
+h1,
+.heading1 {
+    color: #333333;
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    line-height: 32px;
+    margin: 0 0 20px;
+    text-align:center;
+}
+
+h2,
+.heading2 {
+    color: #333333;
+    font-size: 24px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    margin: 0 0 6px;
+    line-height: 30px;
+}
+
+h3,
+.heading3 {
+    color: #333333;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    margin: 0 0 14px;
+    line-height: 28px;
+}
+
+
+/*ESTILOS DE LA HOME PAGE*/
+
+/*home-post se encarga de dar estilo a la tarjeta entera*/
+.home-post, .list-post {
+    position: relative;
+    margin-top: 30px;
+}
+/*Esto se encarga de los h2, h3 y párrafos que hay en cada tarjeta*/
+.home-post h2 {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.home-post h3 {
+    margin-top: 5px;
+    font-size: 15px;
+}
+.home-post p {
+color:white;
+    font-size: 15px;
+    margin:0;
+}
+
+/*Esto es para que al hacer hover sobre la imagen, no se salga del padre*/
+.image-holder  {
+    overflow: hidden;
+}
+/*Esto es para que las imágenes ocupen el 100% de su padre*/
+.image-holder img {
+    width: 100%;
+    overflow: hidden;
+}
+
+/*Esto es para la parte del fondo degradado donde está el texto de cada tarjeta*/
+.text-container {
+   position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    color: white;
+    padding: 20px;
+}
+
+.text-link {
+    color: white;
+}
+/*Esto es para que la categoría tenga un fondo de color*/
+.category {
+    background-color: red;
+    border-radius: 25px;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/*Esto se ocupa de que el texto se sitúa de forma flex, con un dos divs, 
+el del texto a la izquierda y el creador, y comentarios a la derecha*/
+.text-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-end;
+}
+
+.text-content-small {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 5px;
+    text-align: left;
+}
+/*ESTILOS DE LAS VISTAS DE LISTADO DE POSTS*/
+.text-container-list {
+    position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 70%;
+     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+     color: white;
+     padding: 20px;
+ }
+ .card-text {
+    color: white;
+ }
+ .image-zoom {
+    transition: transform 0.3s ease; 
+  }
+  
+  .image-holder:hover .image-zoom {
+    transform: scale(1.08); 
+  }
+  .subrayado:hover {
+    text-decoration: underline;
+  }
+
+
+
+
+
+  
 .detalles-evento {
     margin-top: 10px;
 }
+
 .detalle-evento {
     max-width: 600px;
     margin: 0 auto;

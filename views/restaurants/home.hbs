@@ -1,9 +1,34 @@
-<h1> Restaurantes</h1>
 <div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+<h1> RESTAURANTES</h1>
+  <div class="row g-4">
     {{#each restaurants}}
-      {{>restaurantCard this}}
-    {{/each}}
+    {{#compare @index '<' 1}} <div class="col-md-12">
+      {{> restaurantCard this}}
   </div>
+  {{/compare}}
 
+  {{#compare @index '>' 1}}
+  {{#compare @index '<=' 7}} <div class="col-md-4">
+    {{> restaurantCard this}}
 </div>
+{{/compare}}
+{{/compare}}
+
+  {{#compare @index '>' 6}}
+  {{#compare @index '<=' 8}} <div class="col-md-6">
+    {{> restaurantCard this}}
+</div>
+{{/compare}}
+{{/compare}}
+
+
+{{/each}}
+{{#each restaurants}}
+ <div class="col-md-3">
+
+  {{> restaurantCard this}}
+  </div>
+ 
+  {{/each}}
+  </div>
+  </div>

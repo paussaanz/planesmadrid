@@ -1,16 +1,19 @@
-<div class="col">
-    <div class= "card h-100">
-        <img src="{{event}}" alt="Imagen del evento" class="imagen-evento">
-        <div class="card-body">
-            <h5 class=" card-title">{{title}}</h5>
-            <p class=" card-text"><strong>Fecha:</strong> {{date}}</p>
-            <p class=" card-text"><strong>Duración:</strong> {{duration}}</p>
-            <p class=" card-text"><strong>Ubicación:</strong> {{location}}</p>
-            <p class=" card-text"><strong>Categoría:</strong> {{category}}</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-      <small class="text-body-secondary"><a href="/events/{{this._id}}" class="link-opacity-50-hover">Ver más</a></small>
-      <small class="text-body-secondary">{{price}} Euros</small>
+<div class="list-post ">
+  <div class="image-holder">
+    <a  href="/events/{{this._id}}" >
+    <img class="image-zoom" src="/images/madrid.jpg" alt="" width="540" height="578">
+    </a>
+  </div>
+  <div class="text-container-list">
+    <div class="text-content">
+      <div class="card-body subrayado">
+        <a href="/events/{{this._id}}">
+        <h5 class="card-text ">{{title}}</h5>
+        <p class="card-text "> {{description}}</p>
+        <p class="card-text">{{location}}</p>
+        </a>
+      </div>
+      
     </div>
-    </div>
+  </div>
 </div>

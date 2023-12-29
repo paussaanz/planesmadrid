@@ -23,12 +23,12 @@ const GOOGLE_SCOPES = [
 //Aquí se renderiza en la vista home un mix de los post del resto de páginas
 router.get("/", (req, res, next) => {
   Promise.all([
-    Activities.find().limit(5),
-    Events.find().limit(5),
-    Restaurants.find().limit(5)
+    Activities.find().sort({ inclusionDate: -1 }).limit(5),
+    Events.find().sort({ inclusionDate: -1 }).limit(5),
+    Restaurants.find().sort({ inclusionDate: -1 }).limit(5)
   ])
     .then(([activities, events, restaurants]) => {
-      const mixedItems = shuffle([...activities, ...events, ...restaurants]);
+      const mixedItems = ([...activities, ...events, ...restaurants]);
       res.render('home', { mixedItems });
 
     })
@@ -38,13 +38,7 @@ router.get("/", (req, res, next) => {
     })
 
 });
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+
 
 // Google auth
 router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authenticate('google-auth', { scope: GOOGLE_SCOPES }));

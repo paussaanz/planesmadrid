@@ -1,18 +1,20 @@
-<div class="col">
-    <div class= "card h-100">
-        <img src="{{restaurant}}" alt="Imagen del restaurante" class="imagen-evento">
-        <div class="card-body">
-            <h5 class=" card-title">{{name}}</h5>
-            <p class=" card-text"><strong>Cocina:</strong> {{cuisine}}</p>
-            <p class=" card-text"><strong>Ubicación:</strong> {{address.street}}, {{address.city}}, {{address.state}}</p>
-            <p class=" card-text"><strong>Rating:</strong> {{rating}}</p>
-            
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-      <small class="text-body-secondary"><a href="/restaurants/{{this._id}}" class="link-opacity-50-hover">Ver más</a></small>
+    <div class="list-post ">
+  <div class="image-holder">
+    <a  href="/events/{{this._id}}" >
+    <img class="image-zoom" src="/images/madrid.jpg" alt="" width="540" height="578">
+    </a>
+  </div>
+  <div class="text-container-list">
+    <div class="text-content">
+      <div class="card-body subrayado">
+        <a href="/events/{{this._id}}">
+        <h5 class="card-text ">{{name}}</h5>
+        <p class="card-text "> {{cuisine}}</p>
+        <p class="card-text">{{rating}}</p>
+        </a>
+      </div>
+      
     </div>
-    </div>
+  </div>
 </div>
-
-    
  

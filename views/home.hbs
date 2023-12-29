@@ -1,7 +1,38 @@
 <div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="row g-4">
     {{#each mixedItems}}
-      {{>homeCard this}}
-    {{/each}}
+    {{#compare @index '<' 1}} <div class="col-md-12">
+      {{> homeCardLarge this}}
   </div>
+  {{/compare}}
+
+  {{#compare @index '>' 1}}
+  {{#compare @index '<=' 5}} <div class="col-md-3">
+    {{> homeCardSmall this}}
 </div>
+{{/compare}}
+{{/compare}}
+
+  {{#compare @index '>' 5}}
+  {{#compare @index '<=' 7}} <div class="col-md-6">
+    {{> homeCardLarge this}}
+</div>
+{{/compare}}
+{{/compare}}
+
+
+{{/each}}
+<h1>Nuestras recomendaciones</h1>
+{{#each mixedItems}}
+
+{{#compare @index '>' 7}}
+{{#compare @index '<=' 11}} <div class="col-md-3">
+
+  {{> homeCardSmall this}}
+  </div>
+  {{/compare}}
+  {{/compare}}
+  {{/each}}
+<button> Ver más</button>
+  </div>
+  </div>

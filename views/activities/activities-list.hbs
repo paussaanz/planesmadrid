@@ -1,8 +1,34 @@
-<h1> Actividad</h1>
 <div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+<h1> ACTIVIDADES</h1>
+  <div class="row g-4">
     {{#each activities}}
-      {{>card this}}
-    {{/each}}
+    {{#compare @index '<' 1}} <div class="col-md-12">
+      {{> activityCard this}}
   </div>
+  {{/compare}}
+
+  {{#compare @index '>' 1}}
+  {{#compare @index '<=' 7}} <div class="col-md-4">
+    {{> activityCard this}}
 </div>
+{{/compare}}
+{{/compare}}
+
+  {{#compare @index '>' 6}}
+  {{#compare @index '<=' 8}} <div class="col-md-6">
+    {{> activityCard this}}
+</div>
+{{/compare}}
+{{/compare}}
+
+
+{{/each}}
+{{#each activities}}
+ <div class="col-md-3">
+
+  {{> activityCard this}}
+  </div>
+ 
+  {{/each}}
+  </div>
+  </div>
