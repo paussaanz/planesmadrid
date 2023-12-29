@@ -19,7 +19,9 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
 
 hbs.registerPartials(__dirname + "/views/partials");
-
+hbs.registerHelper('json', function(context) {
+  return JSON.stringify(context);
+});
 
 const { sessionConfig } = require("./config/session.config");
 app.use(sessionConfig);

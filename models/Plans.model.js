@@ -47,7 +47,8 @@ const PlanSchema = mongoose.Schema({
     likedByUsers: [{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User' 
-    }]
+    }],
+    likesCount: { type: Number, default: 0 }
 
 });
 

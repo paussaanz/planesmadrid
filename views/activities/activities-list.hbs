@@ -1,5 +1,18 @@
 <div class="container my-5">
 <h1> ACTIVIDADES</h1>
+<p><strong>¿Qué tipo de actividades te interesan?</strong></p>
+
+
+<form action="/activities" method="post">
+  {{#each categories}}
+    <label>
+      <input type="checkbox" name="category" value="{{name}}" {{#if isChecked}}checked{{/if}}> {{name}}
+    </label>
+  {{/each}}
+  <button type="submit" >Filtrar</button>
+
+   <button type="button" onclick="resetFilters()">Quitar filtros</button>
+  </form>
   <div class="row g-4">
     {{#each activities}}
     {{#compare @index '<' 1}} <div class="col-md-12">
@@ -32,3 +45,10 @@
   {{/each}}
   </div>
   </div>
+
+  <script>
+  // Función para resetear los filtros
+  function resetFilters() {
+    window.location.href = '/activities'; // Redirige a la página sin parámetros de consulta
+  }
+</script>

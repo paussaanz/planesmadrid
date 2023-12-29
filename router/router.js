@@ -53,6 +53,7 @@ router.get("/restaurants", restaurantsController.home);
 router.get("/restaurants/:id", restaurantsController.detail)
 
 //Rutas a activities
+router.post("/activities", activitiesController.list);
 router.get("/activities", activitiesController.list);
 router.get("/activities/:id", activitiesController.getActivityDetail);
 

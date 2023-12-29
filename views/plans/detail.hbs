@@ -11,6 +11,11 @@
     <a class="btn btn-primary" href="/plans/{{plan._id}}/edit">Editar plan</a>
     
     <!-- Aquí tienes el botón de like -->
+
+     <p class="text-primary fs-2 fw-bold">{{plan.likesCount}} ❤️</p>
+
+    <p class="fw-bold mt-5">Sobre esta actividad</p>
+    <p>{{plan.description}}</p>
       
 {{#if isPlanLiked}}
   

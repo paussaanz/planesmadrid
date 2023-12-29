@@ -128,26 +128,32 @@ module.exports.likedPlans = function (req, res, next) {
   const planId = req.params.id;
   const userId = req.session.currentUser._id;
 
-  Plan.findByIdAndUpdate(planId, { $addToSet: { likedByUsers: userId } })
+  Plan.findByIdAndUpdate(planId, { $addToSet: { likedByUsers: userId }, $inc: { likesCount: 1 } })
     .then(() => {
       return User.findById(userId).populate('likedPlans');
     })
     .then(user => {
       res.redirect(`/plans/${planId}`);
     })
-    .catch(err => next(err))
+    .catch(err => next(err));
 };
 
 module.exports.dislikePlans = function (req, res, next) {
   const planId = req.params.id;
   const userId = req.session.currentUser._id;
-  console.log ("USER ID:", userId)
-  Plan.findByIdAndUpdate(planId, { $pull: { likedByUsers: userId } })
-    .then(() => {
-      return User.findById(userId).populate('likedPlans');
+
+  Plan.findById(planId)
+    .then(plan => {
+      if (!plan) {
+        throw createError(404, 'No hemos encontrado este plan');
+      }
+
+      const newLikesCount = Math.max(0, plan.likesCount - 1);
+
+      return Plan.findByIdAndUpdate(planId, { $pull: { likedByUsers: userId }, $set: { likesCount: newLikesCount } });
     })
-    .then(user => {
+    .then(() => {
       res.redirect(`/plans/${planId}`);
     })
-    .catch(err => next(err))
+    .catch(err => next(err));
 };
