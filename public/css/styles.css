@@ -188,3 +188,259 @@ el del texto a la izquierda y el creador, y comentarios a la derecha*/
 #map {
     height: 180px;
 }
+
+.ver-mas-btn {
+    width: 100px; 
+    margin: 0 auto; 
+    display: block;
+}
+
+/*ESTILO USERS PROFILE*/
+
+.profile-page {
+    background-color: #f5f5f5;
+    padding: 40px 0;
+}
+
+.profile-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    background-color: #d8bd83;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-header h1 {
+    margin-bottom: 10px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 24px;
+    color: #000000;
+}
+
+
+.btn-primary {
+    display: inline-block; 
+    margin: 0 auto; 
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #383a3d;
+}
+
+/*Estilo para editar perfil del usuario*/
+
+.edit-profile-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #000000;
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #383a3d;
+}
+
+/*Estilos de login*/
+
+#login {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 4px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #000203;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.small-error {
+    color: #d9534f;
+}
+
+
+button, a.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #000000;
+    color: #fff;
+}
+
+button:hover, a.btn:hover {
+    background-color: #000000;
+}
+
+a.btn.text-bg-light {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+a.btn.text-bg-light:hover {
+    background-color: #eee;
+}
+
+/*Estilos filtros*/
+
+.filter-container {
+    max-width: 1050px; /* Ajusta el ancho máximo según tus preferencias */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between; /* Ajusta la distribución de los elementos */
+}
+
+/* Estilo específico para las etiquetas de los checkboxes */
+.filter-container label {
+    display: flex; /* Hace que las etiquetas sean flexibles */
+    align-items: center; /* Alinea los elementos en el centro verticalmente */
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+/* Estilo específico para los checkboxes */
+.filter-container input[type="checkbox"] {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* Estilo específico para el texto de la categoría */
+
+/* Estilo específico para el botón de filtrar y quitar filtros */
+.filter-container button { /* Hace que el botón sea en línea y respete el ancho del contenido */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.filter-container button[type="submit"] {
+    background-color: #000000;
+    display: inline-block;
+    color: #fff;
+}
+
+.filter-container button[type="submit"]:hover {
+    background-color: #2c3035;
+}
+
+.filter-container button[type="button"] {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.filter-container button[type="button"]:hover {
+    background-color: #c82333;
+}

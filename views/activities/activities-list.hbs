@@ -3,16 +3,15 @@
 <p><strong>¿Qué tipo de actividades te interesan?</strong></p>
 
 
-<form action="/activities" method="post">
-  {{#each categories}}
-    <label>
-      <input type="checkbox" name="category" value="{{name}}" {{#if isChecked}}checked{{/if}}> {{name}}
-    </label>
-  {{/each}}
-  <button type="submit" >Filtrar</button>
-
-   <button type="button" onclick="resetFilters()">Quitar filtros</button>
-  </form>
+<form action="/activities" method="post" class="filter-container">
+    {{#each categories}}
+        <label>
+            <input type="checkbox" name="category" value="{{name}}" {{#if isChecked}}checked{{/if}}> {{name}}
+        </label>
+    {{/each}}
+    <button type="submit">Filtrar</button>
+    <button type="button" onclick="resetFilters()">Quitar filtros</button>
+</form>
   <div class="row g-4">
     {{#each activities}}
     {{#compare @index '<' 1}} <div class="col-md-12">
