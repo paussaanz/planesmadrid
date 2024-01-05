@@ -50,6 +50,7 @@ router.get("/events", eventsController.home);
 router.get("/events/:id", eventsController.detail)
 
 //Rutas a restaurantes
+router.post("/restaurants", restaurantsController.home)
 router.get("/restaurants", restaurantsController.home);
 router.get("/restaurants/:id", restaurantsController.detail)
 

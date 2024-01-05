@@ -1,5 +1,17 @@
 <div class="container my-5">
 <h1> RESTAURANTES</h1>
+<p><strong>¿Qué tipo de cocina te interesa?</strong></p>
+
+
+<form action="/restaurants" method="post" class="filter-container">
+    {{#each categories}}
+        <label>
+            <input type="checkbox" name="category" value="{{name}}" {{#if isChecked}}checked{{/if}}> {{name}}
+        </label>
+    {{/each}}
+    <button type="submit">Filtrar</button>
+    <button type="button" onclick="resetFilters()">Quitar filtros</button>
+</form>
   <div class="row g-4">
     {{#each restaurants}}
     {{#compare @index '<' 1}} <div class="col-md-12">

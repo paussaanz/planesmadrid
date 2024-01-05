@@ -1,26 +1,33 @@
-<div class="detalle-evento">
-    <h1>{{title}}</h1>
-    <img src="{{imageUrl}}" alt="Imagen del evento" class="imagen-evento">
-    <div class="detalles-evento">
-        <p><strong>Cocina:</strong> {{restaurant.cuisine}}</p>
-        <p><strong>Ubicación:</strong> {{restaurant.address.street}}, {{address.city}}, {{address.state}}</p>
-        <p><strong>Rating:</strong> {{restaurant.rating}}</p>
-        <p><strong>Enlace:</strong> <a href="{{enlace}}">Enlace al restaurante</a></p>
+<div class="container my-3 row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <img class="img-fluid" src="{{restaurant.imageUrl}}" />
+  </div>
+  <div class="col">
+    <h1>{{restaurant.name}}</h1>
+    <p><strong>Puntuación: {{restaurant.rating}}</strong></p>
+    <p><strong>Precio medio: {{restaurant.price}}</strong></p>
+    <p><strong>Cocina: {{restaurant.category}}</strong></p>
+    <p><strong>{{restaurant.adress}}</strong></p>
+    <p class="fw-bold mt-5">Sobre este restaurante</p>
+    <p>{{restaurant.description}}</p>
+    <p><strong><a href="{{restaurant.url}}">Más información</a></strong></p>
+            <div id="map"></div>
+</br>
 
-        <div id="map"></div>
+    <center><a class="btn-primary" href="/restaurants">Ver más restaurantes</a></center>
+    </br>
+    {{>comments entity=restaurant type="restaurant"}}
 
-    </div>
-    <p>Descripción detallada del evento...</p>
-{{>comments entity=restaurant type="restaurant"}}
-   
+  </div>
+
 </div>
 <script>
-    let map = L.map('map').setView([{{ restaurant.latitud }}, { { restaurant.longitud } }], 13);
+    let map = L.map('map').setView([{{restaurant.latitud}}, {{restaurant.longitud}}], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    const marker = L.marker([{{ restaurant.latitud }}, { { restaurant.longitud } }]).addTo(map);
+    const marker = L.marker([{{restaurant.latitud}}, {{restaurant.longitud}}]).addTo(map);
 </script>

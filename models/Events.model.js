@@ -39,6 +39,20 @@ const EventSchema = mongoose.Schema({
         enum: categoriesAllowed,
         required: true
     },
+    description: {
+        type: String,
+        required: true
+    },
+    url: {
+        type: String,
+        validate: {
+            validator: function(value) {
+                const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+                return urlRegex.test(value);
+            },
+            message: 'La URL proporcionada no es válida'
+        }
+      },
     latitud: {
         type: Number,
         required: true,

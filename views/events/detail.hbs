@@ -1,21 +1,27 @@
-<div class="detalle-evento">
-        <h1>{{title}}</h1>
-        <img src="{{imageUrl}}" alt="Imagen del evento" class="imagen-evento">
-        <div class="detalles-evento">
-            <p><strong>Fecha:</strong> {{event.date}}</p>
-            <p><strong>Duración:</strong> {{event.duration}}</p>
-            <p><strong>Precio:</strong> ${{event.price}}</p>
-            <p><strong>Ubicación:</strong> {{event.location}}</p>
-            <p><strong>Categoría:</strong> {{event.category}}</p>
-            <p><strong>Enlace:</strong> <a href="{{enlace}}">Enlace al evento</a></p>
-        </div>
-                <div id="map"></div>
+<div class="container my-3 row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <img class="img-fluid" src="{{event.imageUrl}}" />
+  </div>
+  <div class="col">
+    <h1>{{event.title}}</h1>
+    <p><strong>Fecha: {{event.date}}</strong></p>
+    <p><strong>Precio: {{event.price}}</strong></p>
+    <p><strong>Duración: {{event.duration}}</strong></p>
+    <p><strong>{{event.location}}</strong></p>
+    <p class="fw-bold mt-5">Sobre este evento</p>
+    <p>{{event.description}}</p>
+    <p><strong><a href="{{event.url}}">Más información</a></strong></p>
+            <div id="map"></div>
+</br>
 
-        <p>Descripción detallada del evento...</p>
-        {{>comments entity=event type="event"}}
+    <center><a class="btn-primary" href="/events">Ver más eventos</a></center>
+    </br>
+    {{>comments entity=event type="event"}}
 
-    </div>
-    <script>
+  </div>
+
+</div>
+<script>
     let map = L.map('map').setView([{{event.latitud}}, {{event.longitud}}], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
