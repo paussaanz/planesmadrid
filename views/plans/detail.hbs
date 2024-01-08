@@ -16,16 +16,13 @@
 
     <p class="fw-bold mt-5">Sobre esta actividad</p>
     <p>{{plan.description}}</p>
-      
-{{#if isPlanLiked}}
   
-  <form action="/plans/{{plan._id}}/dislike" method="POST">
-    <button type="submit" class="btn btn-primary">❤️</button>
-</form>
-  {{else}}
   <form action="/plans/{{plan._id}}/like" method="POST">
-<button type="submit" class="btn btn-primary">🤍</button>
+    <button type="submit" class="btn btn-primary">{{#planIsLiked userId=currentUser._id likes=plan.likes}}❤️{{else}}😄{{/planIsLiked}}</button>
 </form>
+      
+{{#if likes}}
+  {{else}}
     <!-- Si el usuario no ha dado like, mostrar un corazón vacío -->
   {{/if}}
 

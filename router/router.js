@@ -7,6 +7,7 @@ const eventsController = require("../controllers/events.controller")
 const restaurantsController = require("../controllers/restaurants.controller")
 const plansController = require("../controllers/plans.controller")
 const commentsController = require("../controllers/comments.controller")
+const likesController = require("../controllers/likes.controller.js")
 const upload = require("../config/storage.config");
 const passport = require('passport');
 
@@ -93,8 +94,7 @@ router.post("/comments/:id/restaurant", authMiddleware.isAuthenticated, comments
 //router.get("/comments/:id/delete", authMiddleware.isAuthenticated, commentsController.delete);
 
 //Rutas a like
-router.post('/plans/:id/like', authMiddleware.isAuthenticated, plansController.likedPlans);
-router.post('/plans/:id/dislike', authMiddleware.isAuthenticated, plansController.dislikePlans);
+router.post('/plans/:planId/like', authMiddleware.isAuthenticated, likesController.doLikeCreate);
 
 // Save plans
 router.post("/plans/:id/save", authMiddleware.isAuthenticated, plansController.saveAndListPlans)

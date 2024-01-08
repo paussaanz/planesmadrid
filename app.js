@@ -11,6 +11,10 @@ require("./config/hbs.config");
 
 const app = express();
 
+
+const { planIsLiked } = require("./helpers");
+hbs.registerHelper("planIsLiked", planIsLiked);
+
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));

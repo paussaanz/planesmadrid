@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 const Plan = require('../models/Plans.model');
 const User = require('../models/User.model');
+const Like = require('../models/Likes.model');
 const createError = require('http-errors');
 
 
 //Aquí te dejo también la parte del list con e lpopulate de los likes
 module.exports.list = function(req, res, next) {
   Plan.find()
-  .populate('likedByUsers')
+  .populate('likes')
   .then((plans) => 
   { res.render("plans/list", { plans })
   console.log(plans)
@@ -41,12 +42,12 @@ module.exports.getPlanDetail = (req, res, next) => {
       path: 'user',
     }
   })
+  .populate("likes")
   .then(plan => {
       const userId = req.session.currentUser._id;
       const isPlanSaved = plan.savedByUsers.includes(userId);
-      const isPlanLiked = plan.likedByUsers.includes(userId);
 
-      res.render('plans/detail', { plan, isPlanSaved, isPlanLiked});
+      res.render('plans/detail', { plan, isPlanSaved});
      
     })
     .catch(err => next(err))
@@ -124,36 +125,3 @@ module.exports.unsavePlan = function (req, res, next) {
     .catch(err => next(err))
 };
 
-module.exports.likedPlans = function (req, res, next) {
-  const planId = req.params.id;
-  const userId = req.session.currentUser._id;
-
-  Plan.findByIdAndUpdate(planId, { $addToSet: { likedByUsers: userId }, $inc: { likesCount: 1 } })
-    .then(() => {
-      return User.findById(userId).populate('likedPlans');
-    })
-    .then(user => {
-      res.redirect(`/plans/${planId}`);
-    })
-    .catch(err => next(err));
-};
-
-module.exports.dislikePlans = function (req, res, next) {
-  const planId = req.params.id;
-  const userId = req.session.currentUser._id;
-
-  Plan.findById(planId)
-    .then(plan => {
-      if (!plan) {
-        throw createError(404, 'No hemos encontrado este plan');
-      }
-
-      const newLikesCount = Math.max(0, plan.likesCount - 1);
-
-      return Plan.findByIdAndUpdate(planId, { $pull: { likedByUsers: userId }, $set: { likesCount: newLikesCount } });
-    })
-    .then(() => {
-      res.redirect(`/plans/${planId}`);
-    })
-    .catch(err => next(err));
-};

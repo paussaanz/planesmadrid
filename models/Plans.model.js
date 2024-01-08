@@ -44,13 +44,13 @@ const PlanSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'User' 
     }],
-    likedByUsers: [{
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User' 
-    }],
     likesCount: { type: Number, default: 0 }
 
-});
+},
+{
+    virtual: true,
+  }
+  );
 
 PlanSchema.virtual("comments", {
     ref: "Comment",
@@ -58,6 +58,12 @@ PlanSchema.virtual("comments", {
     foreignField: "plan",
     justOne: false,
 });
+PlanSchema.virtual('likes', {
+    ref: 'Like',
+    localField: '_id',
+    foreignField: 'plan',
+    justOne: false,
+  })
 
 
 
