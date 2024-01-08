@@ -8,8 +8,10 @@
             "price": 15.00,
             "location": "Centro de Exposiciones Reina Sofía, Madrid",
             "category": "Arte",
-            "latitud": 40.4169,
-            "longitud": -3.7038
+            "description":"La exposición de arte contemporáneo en el Museo Reina Sofía de Madrid es una fascinante amalgama de expresiones artísticas vanguardistas que desafían las convenciones tradicionales. A través de una cuidadosa selección de obras de destacados artistas contemporáneos, la muestra explora temas candentes y reflexiona sobre la complejidad del mundo moderno. Las instalaciones interactivas, pinturas vibrantes y esculturas innovadoras convergen para crear un espacio inmersivo que invita a los visitantes a cuestionar y reflexionar sobre la sociedad actual. La exposición del Reina Sofía representa una ventana única hacia las diversas corrientes del arte contemporáneo, destacando la creatividad audaz y provocadora de los artistas contemporáneos que desafían las fronteras convencionales del arte.",
+            "url": "https://www.museoreinasofia.es/",
+            "latitud": 40.40810,
+            "longitud": -3.69449
         },
         
         {
@@ -20,8 +22,10 @@
             "price": 30.00,
             "location": "Estadio Wanda Metropolitano, Madrid",
             "category": "Música",
-            "latitud": 40.4169,
-            "longitud": -3.7038
+            "description": "En el majestuoso escenario del Wanda Metropolitano de Madrid, la energía ardiente y los ritmos vibrantes de la música latina envuelven a una multitud entregada. Bajo las luces deslumbrantes, artistas icónicos de la escena latinoamericana electrifican el estadio con sus irresistibles melodías y coreografías llenas de pasión. La fusión de estilos como salsa, reguetón y cumbia crea un ambiente festivo que trasciende fronteras, conectando a personas de diversas culturas en una celebración inolvidable. El Wanda Metropolitano se transforma en un epicentro de alegría y baile, donde la música latina se convierte en la banda sonora de una noche inolvidable de fiesta y hermandad.",
+            "url": "https://www.atleticodemadrid.com/civitasmetropolitano",
+            "latitud": 40.43640,
+            "longitud": -3.59951
         },
         
         {
@@ -32,8 +36,10 @@
             "price": 50.00,
             "location": "Estadio Santiago Bernabéu, Madrid",
             "category": "Deportes",
-            "latitud": 40.4169,
-            "longitud": -3.7038
+            "description":"¡Prepárate para la batalla futbolística del año! El enfrentamiento legendario entre el Real Madrid y el Barcelona está a punto de desencadenarse en un espectáculo imperdible lleno de emociones intensas. En nuestra página web, mantente actualizado con la cobertura en vivo, estadísticas exclusivas y momentos destacados de este choque titánico que paralizará a los aficionados de todo el mundo. Únete a la conversación, vive la rivalidad en tiempo real y sumérgete en la pasión del fútbol mientras estos dos gigantes se enfrentan cara a cara en un evento que quedará grabado en la historia del deporte. ¡No te pierdas ni un segundo de esta experiencia única!",
+            "url": "https://www.realmadrid.com/es-ES/calendario",
+            "latitud": 40.45322,
+            "longitud": -3.68830
         },
         
         {
@@ -44,8 +50,10 @@
             "price": 0.00,
             "location": "Plaza Mayor, Madrid",
             "category": "Festivales",
-            "latitud": 40.4169,
-            "longitud": -3.7038
+            "description": "¡Sumérgete en la magia navideña en la Plaza Mayor de Madrid! Nuestra feria de Navidad te espera con una experiencia festiva inolvidable. Deléitate con puestos llenos de regalos artesanales, saborea exquisiteces culinarias y disfruta de atracciones para toda la familia. Abierta todos los días de 10:00 a 22:00, esta feria promete un ambiente encantador con luces centelleantes y música festiva. No te pierdas la oportunidad de crear recuerdos especiales en el corazón de la capital durante esta temporada mágica. ¡Únete a nosotros para celebrar la Navidad en su máxima expresión!",
+            "url": "https://www.madrid.es/portales/munimadrid/es/Inicio/Direcciones-y-telefonos/Resultados-busqueda/Plaza-Mayor?vgnextfmt=default&vgnextoid=0a4492355c51c010VgnVCM2000000c205a0aRCRD&vgnextchannel=175e0fa5c68fd310VgnVCM100000171f5a0aRCRD#",
+            "latitud": 40.41561,
+            "longitud": -3.70741
         },
         {
             "title": "Noche de Drama: Obra de Teatro en el Teatro Real",
@@ -55,8 +63,10 @@
             "price": 20.00,
             "location": "Teatro Real, Madrid",
             "category": "Arte",
-            "latitud": 40.4169,
-            "longitud": -3.7038
+            "description": "¡Adéntrate en el fascinante mundo de la obra Entre Sombras y Sueños, una creación teatral que desafía la realidad y despierta las emociones más profundas! En el majestuoso Teatro Real de Madrid, esta cautivadora pieza nos sumerge en un viaje surrealista donde la línea entre los sueños y la vigilia se desdibuja.",
+            "url": "https://www.teatroreal.es/",
+            "latitud": 40.41849,
+            "longitud": -3.71062
         },
         {
             "title": "Festival de Cine Internacional de Madrid",
@@ -66,8 +76,10 @@
             "price": 12.00,
             "location": "Diversos cines, Madrid",
             "category": "Arte",
-            "latitud": 40.4169,
-            "longitud": -3.7038
+            "description": "Bienvenidos al Festival Internacional de Cine de Madrid, donde la pantalla cobra vida con lo mejor del séptimo arte. Deléitate con una selección excepcional de películas de todo el mundo, proyectadas en nuestro impresionante escenario desde las 10:00 hasta las 23:00. Descubre la magia del cine en un entorno único, donde cineastas de renombre comparten sus visiones creativas. Este evento imperdible se celebra durante cinco días llenos de emoción, cultura y talento cinematográfico. Acompáñanos para celebrar la diversidad del cine internacional en el corazón de Madrid. Compra tus entradas ahora y únete a la fiesta cinematográfica.",
+            "url": "https://www.comunidad.madrid/cultura/oferta-cultural-ocio/festivales-audiovisuales-comunidad-madrid",
+            "latitud": 40.39521,
+            "longitud": -3.70062
         },
         {
             "title": "Explorando el Futuro: Conferencia de Ciencia y Tecnología",
@@ -77,8 +89,10 @@
             "price": 15.00,
             "location": "Centro de Convenciones, Madrid",
             "category": "Exposiciones temporales",
-            "latitud": 40.4169,
-            "longitud": -3.7038
+            "description": "Explora el futuro en nuestra emocionante exposición temporal: Explorando el Futuro: Conferencia de Ciencia y Tecnología en el Centro de Convenciones de Madrid. Sumérgete en un viaje fascinante a través de las últimas innovaciones científicas y tecnológicas. Abierta de 9:00 a 18:00, esta experiencia única ofrece conferencias magistrales, demostraciones interactivas y la oportunidad de conectarte con líderes de la industria. Únete a nosotros para descubrir las tendencias que moldearán el mañana. ¡Compra tus entradas ahora y sé parte de esta visión emocionante del futuro!",
+            "url": "https://lacasadecampo.es/2021/02/18/pabellon-principal/",
+            "latitud": 40.41751,
+            "longitud": -3.73881
         },
         {
             "title": "Encuentra Tesoros: Mercadillo de Antigüedades en El Rastro",
@@ -88,8 +102,10 @@
             "price": 0.00,
             "location": "El Rastro, Madrid",
             "category": "Arte",
-            "latitud": 40.4169,
-            "longitud": -3.7038
+            "description": "Descubre joyas ocultas en nuestra exposición única Encuentra Tesoros: Mercadillo de Antigüedades en El Rastro de Madrid. Desde las 10:00 hasta las 20:00, sumérgete en un viaje fascinante a través de objetos con historia y encanto. Explora los puestos repletos de antigüedades, arte y coleccionables mientras paseas por las pintorescas calles del Rastro. Este evento especial es la oportunidad perfecta para encontrar piezas únicas y sumergirte en la rica tradición cultural de Madrid. ¡Ven a cazar tesoros con nosotros y déjate cautivar por la magia del pasado!",
+            "url": "https://www.comunidad.madrid/",
+            "latitud": 40.41771,
+            "longitud": -3.70792
         }        
     ]
   }

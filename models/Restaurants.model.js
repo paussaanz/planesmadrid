@@ -4,18 +4,17 @@ const RestaurantSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    trim: true,
   },
-  cuisine: {
+  category: {
     type: String,
-    required: true,
-    trim: true,
+    enum: ["Mediterránea", "Mejicana", "Italiana", "Japonesa", "Vegetariana"],
+    default: "Other",
   },
   address: {
     street: String,
-    city: String,
-    state: String,
-    zipcode: String,
+  },
+  price: {
+    type: String,
   },
   rating: {
     type: Number,
@@ -23,16 +22,6 @@ const RestaurantSchema = new mongoose.Schema({
     min: 0,
     max: 5,
   },
-  reviews: 
-    {
-      user: String,
-      text: String,
-      rating: {
-        type: Number,
-        min: 0,
-        max: 5,
-      },
-    },
     imageUrl: {
       type: String,
       validate: {
@@ -43,13 +32,24 @@ const RestaurantSchema = new mongoose.Schema({
           message: 'La URL de la imagen proporcionada no es válida'
       }
   },
+  description: {
+    type: String,
+},
+url: {
+  type: String,
+  validate: {
+      validator: function(value) {
+          const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+          return urlRegex.test(value);
+      },
+      message: 'La URL proporcionada no es válida'
+  }
+},
   latitud: {
     type: Number,
-    required: true,
   },
   longitud: {
     type: Number,
-    required: true
   }
 });
 
