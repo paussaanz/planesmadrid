@@ -45,6 +45,7 @@ router.get('/auth/google', authMiddleware.isNotAuthenticated, passport.authentic
 router.get('/auth/google/callback', authMiddleware.isNotAuthenticated, authController.doLoginGoogle)
 
 // Rutas a eventos
+router.post("/events", eventsController.home);
 router.get("/events", eventsController.home);
 router.get("/events/:id", eventsController.detail)
 

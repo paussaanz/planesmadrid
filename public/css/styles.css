@@ -160,6 +160,13 @@ el del texto a la izquierda y el creador, y comentarios a la derecha*/
   }
 
 
+  /*ESTILOS DE LA BARRA DE FILTRADO*/
+.filter-form{
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-end;
+}
+
 
 
 

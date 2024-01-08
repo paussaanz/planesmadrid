@@ -1,18 +1,24 @@
 <div class="container my-5">
-<h1> ACTIVIDADES</h1>
-<p><strong>¿Qué tipo de actividades te interesan?</strong></p>
+  <h1> ACTIVIDADES</h1>
 
+  <p><strong>¿Qué tipo de actividades te interesan?</strong></p>
 
-<form action="/activities" method="post">
-  {{#each categories}}
-    <label>
-      <input type="checkbox" name="category" value="{{name}}" {{#if isChecked}}checked{{/if}}> {{name}}
-    </label>
-  {{/each}}
-  <button type="submit" >Filtrar</button>
+  <div class="filter-bar">
+    <form action="/activities" method="post" class="filter-form">
+      <div class="filter-options">
+        {{#each categories}}
+        <label class="custom-label">
+          <input type="checkbox" class="checkbox" name="category" value="{{name}}" {{#if isChecked}}checked{{/if}}> {{name}}
+        </label>
+        {{/each}}
+      </div>
+      <div class="filter-buttons">
+        <button type="submit" class="btn btn-success">Filtrar</button>
+        <button type="button" class="btn btn-dark" onclick="resetFilters()">Quitar filtros</button>
+      </div>
+    </form>
+  </div>
 
-   <button type="button" onclick="resetFilters()">Quitar filtros</button>
-  </form>
   <div class="row g-4">
     {{#each activities}}
     {{#compare @index '<' 1}} <div class="col-md-12">
@@ -27,28 +33,28 @@
 {{/compare}}
 {{/compare}}
 
-  {{#compare @index '>' 6}}
-  {{#compare @index '<=' 8}} <div class="col-md-6">
-    {{> activityCard this}}
-</div>
-{{/compare}}
-{{/compare}}
-
-
-{{/each}}
-{{#each activities}}
- <div class="col-md-3">
-
+{{#compare @index '>' 6}}
+{{#compare @index '<=' 8}} <div class="col-md-6">
   {{> activityCard this}}
   </div>
- 
+  {{/compare}}
+  {{/compare}}
+
+
+  {{/each}}
+  {{#each activities}}
+  <div class="col-md-3">
+
+    {{> activityCard this}}
+  </div>
+
   {{/each}}
   </div>
   </div>
 
   <script>
-  // Función para resetear los filtros
-  function resetFilters() {
-    window.location.href = '/activities'; // Redirige a la página sin parámetros de consulta
-  }
-</script>
+    // Función para resetear los filtros
+    function resetFilters() {
+      window.location.href = '/activities'; // Redirige a la página sin parámetros de consulta
+    }
+  </script>

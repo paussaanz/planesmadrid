@@ -1,5 +1,23 @@
 <div class="container my-5">
 <h1> RESTAURANTES</h1>
+  <p><strong>¿Qué tipo de restaurantes te interesan?</strong></p>
+
+  <div class="filter-bar">
+    <form action="/restaurants" method="post" class="filter-form">
+      <div class="filter-options">
+        {{#each categories}}
+        <label class="custom-label">
+          <input type="checkbox" class="checkbox" name="category" value="{{name}}" {{#if isChecked}}checked{{/if}}> {{name}}
+        </label>
+        {{/each}}
+      </div>
+      <div class="filter-buttons">
+        <button type="submit" class="btn btn-success">Filtrar</button>
+        <button type="button" class="btn btn-dark" onclick="resetFilters()">Quitar filtros</button>
+      </div>
+    </form>
+  </div>
+
   <div class="row g-4">
     {{#each restaurants}}
     {{#compare @index '<' 1}} <div class="col-md-12">
