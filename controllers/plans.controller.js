@@ -58,6 +58,7 @@ module.exports.getPlanEditForm = (req, res, next) => {
   const categoryEnumValues = Plan.schema.path('category').enumValues;
 
   Plan.findById(id)
+  .populate('likesCount')
     .then((plan) => {
       if (plan) {
         res.render("plans/form", { plan, categoryEnumValues, isEdit: true });

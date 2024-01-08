@@ -11,6 +11,10 @@ const likeSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
+  },
+  likeCount: {
+    type: Number,
+    default: 0,
   }
 });
 

@@ -18,7 +18,7 @@
     <p>{{plan.description}}</p>
   
   <form action="/plans/{{plan._id}}/like" method="POST">
-    <button type="submit" class="btn btn-primary">{{#planIsLiked userId=currentUser._id likes=plan.likes}}❤️{{else}}😄{{/planIsLiked}}</button>
+    <button type="submit" class="btn btn-primary">{{#planIsLiked userId=currentUser._id likes=plan.likes}}❤️{{else}}🤍{{/planIsLiked}}</button>
 </form>
       
 {{#if likes}}
