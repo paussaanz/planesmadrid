@@ -15,6 +15,9 @@ const app = express();
 const { planIsLiked } = require("./helpers");
 hbs.registerHelper("planIsLiked", planIsLiked);
 
+const { userCreator } = require("./helpers");
+hbs.registerHelper("userCreator", userCreator);
+
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));

@@ -25,7 +25,14 @@
   {{else}}
     <!-- Si el usuario no ha dado like, mostrar un corazón vacío -->
   {{/if}}
-
+    <!-- Botón de eliminar plan -->
+   {{#userCreator planUser=plan.user currentUserId=currentUser._id}}
+    <form method="POST" action="/plans/{{plan._id}}/delete" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este plan?');">
+        <button type="submit" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i> Eliminar Plan
+        </button>
+    </form>
+{{/userCreator}}
     <!-- Esto es la lógica del botón de guardar -->
     {{#if isPlanSaved}}
     <form action="/plans/{{plan._id}}/unsave" method="POST">
