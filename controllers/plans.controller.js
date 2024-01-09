@@ -85,33 +85,25 @@ module.exports.doPlanEdit = (req, res, next) => {
 
 module.exports.deletePlan = (req, res, next) => {
   const planId = req.params.id;
-  const userId = req.session.currentUser._id;
 
-  // Buscar el plan por ID y verificar si el usuario actual es el creador
-  Plan.findById(planId)
-    .then((plan) => {
-      if (!plan) {
-        return next(createError(404, 'No hemos encontrado este plan'));
-      }
-
-      // Verificar si el usuario actual es el creador del plan
-      if (plan.user.toString() !== userId) {
-        return next(createError(403, 'No tienes permisos para eliminar este plan'));
-      }
-
-      // El usuario actual es el creador, proceder con la eliminación
-      return Plan.findByIdAndDelete(planId);
-    })
+  Plan.findByIdAndDelete(planId)
     .then((deletedPlan) => {
-      if (deletedPlan) {
-        res.redirect('/plans');
-      } else {
-        next(createError(404, 'No hemos encontrado este plan'));
+      if (!deletedPlan) {
+        throw createError(404, 'No hemos encontrado este plan');
       }
+
+      // Eliminar los likes asociados al plan (Asegúrate de que el nombre del campo es correcto)
+      return Like.deleteMany({ _id: { $in: deletedPlan.likes } });
     })
-    .catch((err) => next(err));
+    .then(() => {
+      res.redirect('/plans');
+    })
+    .catch((err) => {
+      next(err);
+    });
 };
-//Este controlador se ocupa de listar los planes guardados por un usuario en su perfil
+
+
 module.exports.saveAndListPlans = function (req, res, next) {
   const planId = req.params.id;
   const userId = req.session.currentUser._id;

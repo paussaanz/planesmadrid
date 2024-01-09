@@ -10,8 +10,6 @@ module.exports.planIsLiked = function (options) {
 
   module.exports.userCreator = function(options) {
     const { planUser, currentUserId } = options.hash;
-    console.log("------- ", planUser);
-    console.log(">>>>>>> ", currentUserId);
     if (planUser.toString() === currentUserId.toString()) {
       return options.fn(this);
     } else {
