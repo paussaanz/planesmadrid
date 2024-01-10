@@ -8,6 +8,7 @@ const restaurantsController = require("../controllers/restaurants.controller")
 const plansController = require("../controllers/plans.controller")
 const commentsController = require("../controllers/comments.controller")
 const likesController = require("../controllers/likes.controller.js")
+const savesController = require("../controllers/saves.controller.js")
 const upload = require("../config/storage.config");
 const passport = require('passport');
 
@@ -95,6 +96,9 @@ router.post("/comments/:id/restaurant", authMiddleware.isAuthenticated, comments
 
 //Rutas a like
 router.post('/plans/:planId/like', authMiddleware.isAuthenticated, likesController.doLikeCreate);
+
+//Ruta a saved
+router.post('/plans/:planId/save', authMiddleware.isAuthenticated, savesController.doSaveCreate);
 
 // Save plans
 router.post("/plans/:id/save", authMiddleware.isAuthenticated, plansController.saveAndListPlans)

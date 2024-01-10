@@ -12,8 +12,9 @@ require("./config/hbs.config");
 const app = express();
 
 
-const { planIsLiked } = require("./helpers");
+const { planIsLiked, planIsSaved } = require("./helpers");
 hbs.registerHelper("planIsLiked", planIsLiked);
+hbs.registerHelper("planIsSaved", planIsSaved);
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));

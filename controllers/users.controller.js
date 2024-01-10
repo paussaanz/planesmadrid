@@ -16,8 +16,6 @@ const User = require('../models/User.model')
     const userId = req.session.currentUser._id;
   
     User.findById(userId)
-    .populate("plans")
-    .populate('savedPlans')  
       .then(user => {
         res.render('users/form', { user });
       })
@@ -31,10 +29,9 @@ const User = require('../models/User.model')
   
     // Actualizar la información del usuario en la base de datos
     User.findByIdAndUpdate(userId, { username, email }, { new: true })
-    .populate("plans")
-    .populate('savedPlans')   
       .then(updatedUser => {
-        res.render('users/profile', {currentUser: updatedUser});
+        req.session.currentUser = updatedUser;
+        res.redirect('/profile');
       })
       .catch(err => next(err));
   };

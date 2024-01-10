@@ -45,9 +45,7 @@ module.exports.getPlanDetail = (req, res, next) => {
   .populate("likes")
   .then(plan => {
       const userId = req.session.currentUser._id;
-      const isPlanSaved = plan.savedByUsers.includes(userId);
-
-      res.render('plans/detail', { plan, isPlanSaved});
+      res.render('plans/detail', {plan});
      
     })
     .catch(err => next(err))

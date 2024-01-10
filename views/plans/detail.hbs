@@ -1,6 +1,6 @@
 <div class="container my-3 row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-  </div>
+    <div class="col">
+</div>
   <div class="col">
     <h2>{{plan.title}}</h2>
     <p class="text-danger fs-2 fw-bold">{{plan.duration}}€</p>
@@ -19,23 +19,13 @@
   
   <form action="/plans/{{plan._id}}/like" method="POST">
     <button type="submit" class="btn btn-primary">{{#planIsLiked userId=currentUser._id likes=plan.likes}}❤️{{else}}😄{{/planIsLiked}}</button>
-</form>
+  </form>
       
-{{#if likes}}
-  {{else}}
-    <!-- Si el usuario no ha dado like, mostrar un corazón vacío -->
-  {{/if}}
-
     <!-- Esto es la lógica del botón de guardar -->
-    {{#if isPlanSaved}}
-    <form action="/plans/{{plan._id}}/unsave" method="POST">
-      <button type="submit" class="btn btn-danger">Eliminar de guardados</button>
-    </form>
-    {{else}}
     <form action="/plans/{{plan._id}}/save" method="POST">
-      <button type="submit" class="btn btn-primary">Guardar este plan</button>
+      <button type="submit" class="{{#planIsSaved userId=currentUser._id saves=plan.saves}}btn btn-danger{{else}}btn btn-primary{{/planIsSaved}}">{{#planIsSaved userId=currentUser._id saves=plan.saves}}Eliminar de guardados{{else}}Guardar este plan{{/planIsSaved}}</button>
     </form>
-    {{/if}}
+  
 
     {{>comments entity=plan type="plan"}}
   </div>

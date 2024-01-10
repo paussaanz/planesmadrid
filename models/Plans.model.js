@@ -40,10 +40,6 @@ const PlanSchema = mongoose.Schema({
             message: 'La URL de la imagen proporcionada no es válida'
         }
     },
-    savedByUsers: [{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User' 
-    }],
     likesCount: { type: Number, default: 0 }
 
 },
@@ -60,6 +56,12 @@ PlanSchema.virtual("comments", {
 });
 PlanSchema.virtual('likes', {
     ref: 'Like',
+    localField: '_id',
+    foreignField: 'plan',
+    justOne: false,
+  })
+PlanSchema.virtual('saves', {
+    ref: 'Save',
     localField: '_id',
     foreignField: 'plan',
     justOne: false,
