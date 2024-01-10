@@ -7,7 +7,11 @@
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" value="{{user.email}}" required>
 
-  
+  <div class="mb-3">
+        <label for="image" style="color: black;" class="form-label">Subir nueva imagen</label>
+        <input placeholder="Upload an image" type="file" name="image"
+          class="{{#if errors}}is-invalid{{/if}} form-control" id="image">
+      </div>
 
     <button type="submit" class="btn-primary">Guardar</button>
   </form>

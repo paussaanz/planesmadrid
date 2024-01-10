@@ -49,6 +49,7 @@ const PlanSchema = mongoose.Schema({
 },
 {
     virtual: true,
+    toObject: true,
   }
   );
 

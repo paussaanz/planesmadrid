@@ -9,7 +9,6 @@ module.exports.register = (req, res, next) => {
 
 module.exports.doRegister = (req, res, next) => {
   const { username, email, password } = req.body;
-
   User.findOne({ email })
     .then((dbUser) => {
       if (dbUser) {

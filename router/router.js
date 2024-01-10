@@ -64,7 +64,7 @@ router.get("/activities/:id", activitiesController.getActivityDetail);
 router.get("/login", authMiddleware.isNotAuthenticated, authController.login);
 router.post("/login", authMiddleware.isNotAuthenticated, authController.doLogin);
 router.get("/register", authMiddleware.isNotAuthenticated, authController.register);
-router.post("/register", authMiddleware.isNotAuthenticated, authController.doRegister);
+router.post("/register", authMiddleware.isNotAuthenticated, upload.single('image'), authController.doRegister);
 router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
 router.get("/activate/:token", authController.activate);
 
