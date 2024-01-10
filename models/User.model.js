@@ -20,6 +20,16 @@ const UserSchema = mongoose.Schema({
     required: [true, "Password is required"],
     minLength: [3, "Password must be 8 characters or longer"],
   },
+  image: {
+    type: String,
+    validate: {
+        validator: function (value) {
+            const imageRegex = /\.(jpg|jpeg|png|gif|bmp)$/i;
+            return imageRegex.test(value);
+        },
+        message: 'La URL de la imagen proporcionada no es válida'
+    }
+  },
   activationToken: {
     type: String,
     default: () => {

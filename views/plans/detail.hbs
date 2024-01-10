@@ -21,6 +21,21 @@
     <button type="submit" class="btn btn-primary">{{#planIsLiked userId=currentUser._id likes=plan.likes}}❤️{{else}}😄{{/planIsLiked}}</button>
   </form>
       
+    <button type="submit" class="btn btn-primary">{{#planIsLiked userId=currentUser._id likes=plan.likes}}❤️{{else}}🤍{{/planIsLiked}}</button>
+</form>
+      
+{{#if likes}}
+  {{else}}
+    <!-- Si el usuario no ha dado like, mostrar un corazón vacío -->
+  {{/if}}
+    <!-- Botón de eliminar plan -->
+   {{#userCreator planUser=plan.user currentUserId=currentUser._id}}
+    <form method="POST" action="/plans/{{plan._id}}/delete" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este plan?');">
+        <button type="submit" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i> Eliminar Plan
+        </button>
+    </form>
+{{/userCreator}}
     <!-- Esto es la lógica del botón de guardar -->
     <form action="/plans/{{plan._id}}/save" method="POST">
       <button type="submit" class="{{#planIsSaved userId=currentUser._id saves=plan.saves}}btn btn-danger{{else}}btn btn-primary{{/planIsSaved}}">{{#planIsSaved userId=currentUser._id saves=plan.saves}}Eliminar de guardados{{else}}Guardar este plan{{/planIsSaved}}</button>

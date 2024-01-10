@@ -56,6 +56,7 @@ module.exports.getPlanEditForm = (req, res, next) => {
   const categoryEnumValues = Plan.schema.path('category').enumValues;
 
   Plan.findById(id)
+  .populate('likesCount')
     .then((plan) => {
       if (plan) {
         res.render("plans/form", { plan, categoryEnumValues, isEdit: true });
@@ -81,18 +82,26 @@ module.exports.doPlanEdit = (req, res, next) => {
 };
 
 module.exports.deletePlan = (req, res, next) => {
-  Plan.findByIdAndDelete(req.params.id)
-    .then(plan => {
-      if (plan) {
-        res.redirect('/plans');
-      } else {
-        next(createError(404, 'No hemos encontrado este plan'))
-      }
-    })
-    .catch(err => next(err))
-}
+  const planId = req.params.id;
 
-//Este controlador se ocupa de listar los planes guardados por un usuario en su perfil
+  Plan.findByIdAndDelete(planId)
+    .then((deletedPlan) => {
+      if (!deletedPlan) {
+        throw createError(404, 'No hemos encontrado este plan');
+      }
+
+      // Eliminar los likes asociados al plan (Asegúrate de que el nombre del campo es correcto)
+      return Like.deleteMany({ _id: { $in: deletedPlan.likes } });
+    })
+    .then(() => {
+      res.redirect('/plans');
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
+
 module.exports.saveAndListPlans = function (req, res, next) {
   const planId = req.params.id;
   const userId = req.session.currentUser._id;
