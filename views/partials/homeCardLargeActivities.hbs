@@ -1,0 +1,22 @@
+<div class="home-post ">
+  <div class="image-holder">
+    <img class="img-fit image-zoom" src="{{imageUrl}}" alt="">
+  </div>
+  <div class="text-container">
+    <div class="text-content">
+      <div>
+      <a class="text-link category" href="activities/{{this._id}}">{{#if category}} {{category}} {{else}} Restaurantes {{/if}}</a>
+      <h2><a class="text-link" href="">{{title}} {{#if name}} {{name}} {{/if}}</a></h2>
+      <h3 class="text-link"> {{#if cuisine}} {{cuisine}} {{/if}}</h3>
+      <p class="home-post">{{#if date}} Fecha: {{date}} {{/if}}</p>
+      <p class="home-post">{{#if rating}} Valoración: {{rating}} {{/if}}</p>
+      <p class="home-post">{{#if price}} Precio: {{price}} {{/if}}</p>
+      </div>
+      <div class="post-info">
+        <p>by Stan Enemy<p>
+        <p>3 days ago</p>
+        <p>2 comments</p>
+      </div>
+    </div>
+  </div>
+</div>
