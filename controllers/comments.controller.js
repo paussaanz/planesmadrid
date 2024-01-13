@@ -56,17 +56,16 @@ module.exports.delete = (req, res, next) => {
   const { id, type } = req.params;
 
   const getPathFromType = (type) => {
-    if(type==="activity"){
-      return activities
-    }
-    else{
-      return type + "s"
+    if (type === "activity"){
+      return "activities"
+    } else {
+      return `${type} + s`
     }
   }
 
   Comment.findByIdAndDelete(id)
   .then((deletedComment) => {
-    res.redirect(`/${type}/${deletedComment[type]}`)
+    res.redirect(`/${getPathFromType(type)}/${deletedComment[type]}`)
   })
   .catch(next);
 }

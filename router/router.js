@@ -101,8 +101,7 @@ router.post('/plans/:planId/like', authMiddleware.isAuthenticated, likesControll
 router.post('/plans/:planId/save', authMiddleware.isAuthenticated, savesController.doSaveCreate);
 
 // Save plans
-router.post("/plans/:id/save", authMiddleware.isAuthenticated, plansController.saveAndListPlans)
-router.post("/plans/:id/unsave", authMiddleware.isAuthenticated, plansController.unsavePlan)
+
 
 
 

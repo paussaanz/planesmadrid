@@ -30,7 +30,7 @@
    
     <!-- Esto es la lógica del botón de guardar -->
     <form action="/plans/{{plan._id}}/save" method="POST">
-      <button type="submit" class="{{#planIsSaved userId=currentUser._id saves=plan.saves}}btn btn-danger{{else}}btn btn-primary{{/planIsSaved}}">{{#planIsSaved userId=currentUser._id saves=plan.saves}}Eliminar de guardados{{else}}Guardar este plan{{/planIsSaved}}</button>
+      <button type="submit" class="btn btn-primary">{{#planIsSaved userId=currentUser._id saves=plan.saves}}Eliminar de guardados{{else}}Guardar este plan{{/planIsSaved}}</button>
     </form>
   
 

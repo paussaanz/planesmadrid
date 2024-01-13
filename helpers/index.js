@@ -10,6 +10,8 @@ module.exports.planIsLiked = function (options) {
 
   module.exports.planIsSaved = function (options) {
     const { userId, saves } = options.hash;
+
+    console.log("******** ", userId, saves)
     if (userId && saves && saves.some(save => save.user == userId)) {
       return options.fn(this);
     } else {

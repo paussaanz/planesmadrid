@@ -15,9 +15,9 @@
     {{/each}}
 </br>
     <h2>Planes guardados</h2>
+    {{#each user.saves as |plan|}}
 
-    {{#each user.savedPlans as |plan|}}
-      {{>planCard this}}
+      {{>planCard plan}}
     {{/each}}
   </div>
 </div>

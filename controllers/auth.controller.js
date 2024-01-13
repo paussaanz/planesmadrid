@@ -13,7 +13,6 @@ module.exports.doRegister = (req, res, next) => {
     req.body.image = req.file.path;
   }
   const { username, email } = req.body;
-
   User.findOne({ email })
     .then((dbUser) => {
       if (dbUser) {

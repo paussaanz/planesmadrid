@@ -43,6 +43,7 @@ module.exports.getPlanDetail = (req, res, next) => {
     }
   })
   .populate("likes")
+  .populate("saves")
   .then(plan => {
       const userId = req.session.currentUser._id;
       res.render('plans/detail', {plan});

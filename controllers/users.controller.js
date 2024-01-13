@@ -5,7 +5,7 @@ const User = require('../models/User.model')
     const userId = req.session.currentUser._id;
     User.findById(userId)
     .populate('plans') 
-    .populate('savedPlans')   
+    .populate('saves')   
     .then(user => {
       res.render("users/profile", { user });
     })
