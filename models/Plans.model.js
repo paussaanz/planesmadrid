@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-//  enum: ["Museos", "Tours", "Naturaleza", "Música", "Lugares de interés", "Talleres", "Espectáculos"],
 const PlanSchema = mongoose.Schema({
     title: {
         type: String,
@@ -9,13 +8,17 @@ const PlanSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    date: {
+        type: String,
+        required: true
+    },
     location: {
         type: String,
         required: true
     },
     category: {
         type: String,
-        enum: ['Adventure', 'Culture', 'Gastronomy', 'Relax', 'Sports', 'Other'],
+        enum: ['Deporte', 'Cultura', 'Gastronomía', 'Relax', 'Espectáculos', 'Otros'],
         default: "Other",
     },
     description: {

@@ -11,7 +11,8 @@ const RestaurantSchema = new mongoose.Schema({
     default: "Other",
   },
   address: {
-    street: String,
+    type: String,
+    required: true,
   },
   price: {
     type: String,

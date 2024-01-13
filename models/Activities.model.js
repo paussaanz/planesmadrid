@@ -17,7 +17,7 @@ const ActivitySchema = mongoose.Schema({
         }
     },
     date: {
-        type: Date,
+        type: String,
         required: true
     },
     duration: {
@@ -25,7 +25,7 @@ const ActivitySchema = mongoose.Schema({
         required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     location: {

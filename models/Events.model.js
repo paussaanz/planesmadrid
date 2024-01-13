@@ -19,7 +19,7 @@ const EventSchema = mongoose.Schema({
         }
     },
     date: {
-        type: Date,
+        type: String,
         required: true
     },
     duration: {
@@ -27,7 +27,7 @@ const EventSchema = mongoose.Schema({
         required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     location: {

@@ -447,3 +447,10 @@ a.btn.text-bg-light:hover {
 .filter-container button[type="button"]:hover {
     background-color: #c82333;
 }
+
+.img-fit{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
