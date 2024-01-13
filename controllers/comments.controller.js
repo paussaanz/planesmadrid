@@ -52,12 +52,21 @@ module.exports.doCreateRestaurant = (req, res, next) => {
       .catch(next)
   }
 
-/*module.exports.delete = (req, res, next) => {
-  const { id } = req.params;
+module.exports.delete = (req, res, next) => {
+  const { id, type } = req.params;
+
+  const getPathFromType = (type) => {
+    if(type==="activity"){
+      return activities
+    }
+    else{
+      return type + "s"
+    }
+  }
 
   Comment.findByIdAndDelete(id)
-    .then((comment) => {
-      res.redirect(`/books/${comment.book}`);
-    })
-    .catch(next)
-}*/
+  .then((deletedComment) => {
+    res.redirect(`/${type}/${deletedComment[type]}`)
+  })
+  .catch(next);
+}

@@ -25,13 +25,13 @@ const GOOGLE_SCOPES = [
 //Aquí se renderiza en la vista home un mix de los post del resto de páginas
 router.get("/", (req, res, next) => {
   Promise.all([
-    Activities.find().sort({ inclusionDate: -1 }).limit(5),
+    Activities.find().sort({ inclusionDate: -1 }).limit(6),
     Events.find().sort({ inclusionDate: -1 }).limit(5),
     Restaurants.find().sort({ inclusionDate: -1 }).limit(5)
   ])
     .then(([activities, events, restaurants]) => {
-      const mixedItems = ([...activities, ...events, ...restaurants]);
-      res.render('home', { mixedItems });
+   
+      res.render('home', { activities, events, restaurants });
 
     })
     .catch((err) => {
@@ -65,14 +65,14 @@ router.get("/activities/:id", activitiesController.getActivityDetail);
 router.get("/login", authMiddleware.isNotAuthenticated, authController.login);
 router.post("/login", authMiddleware.isNotAuthenticated, authController.doLogin);
 router.get("/register", authMiddleware.isNotAuthenticated, authController.register);
-router.post("/register", authMiddleware.isNotAuthenticated, authController.doRegister);
+router.post("/register", authMiddleware.isNotAuthenticated, upload.single('image'), authController.doRegister);
 router.get("/logout", authMiddleware.isAuthenticated, authController.logout);
 router.get("/activate/:token", authController.activate);
 
 //Rutas a perfil y editar
 router.get("/profile", authMiddleware.isAuthenticated, usersController.profile);
 router.get("/users/:id/form", authMiddleware.isAuthenticated, usersController.editProfileForm)
-router.post("/profile", usersController.doEditProfile);
+router.post("/profile", upload.single('image'), usersController.doEditProfile);
 
 //Rutas a Crea tu plan
 ///////Crear
@@ -92,7 +92,7 @@ router.post("/comments/:id/activity", authMiddleware.isAuthenticated, commentsCo
 router.post("/comments/:id/event", authMiddleware.isAuthenticated, commentsController.doCreateEvent);
 router.post("/comments/:id/plan", authMiddleware.isAuthenticated, commentsController.doCreatePlan);
 router.post("/comments/:id/restaurant", authMiddleware.isAuthenticated, commentsController.doCreateRestaurant);
-//router.get("/comments/:id/delete", authMiddleware.isAuthenticated, commentsController.delete);
+router.post("/comments/:id/:type/delete", authMiddleware.isAuthenticated, commentsController.delete);
 
 //Rutas a like
 router.post('/plans/:planId/like', authMiddleware.isAuthenticated, likesController.doLikeCreate);

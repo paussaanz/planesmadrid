@@ -17,6 +17,10 @@
                 <small class="text-body-secondary">Por {{comment.user.username}}</small>
                 <a href="/comments/{{../entity._id}}/delete" style="width: fit-content;"><i data-feather="trash-2" width="16"
                         style="color: red;"></i></a>
+                <form action="/comments/{{comment._id}}/{{../type}}/delete" method="POST">
+
+                <button ><i class="fa-solid fa-trash-can"></i>
+                </form>
             </div>
         </div>
         {{/each}}

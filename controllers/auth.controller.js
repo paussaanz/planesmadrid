@@ -8,7 +8,11 @@ module.exports.register = (req, res, next) => {
 };
 
 module.exports.doRegister = (req, res, next) => {
-  const { username, email, password } = req.body;
+  if (req.file) {
+    console.log(req.file)
+    req.body.image = req.file.path;
+  }
+  const { username, email } = req.body;
 
   User.findOne({ email })
     .then((dbUser) => {
@@ -23,11 +27,7 @@ module.exports.doRegister = (req, res, next) => {
           },
         });
       } else {
-        User.create({
-          username,
-          email,
-          password,
-        })
+        User.create({ ...req.body })
           .then((userCreated) => {
             const {
               transporter,

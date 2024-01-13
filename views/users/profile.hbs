@@ -6,13 +6,8 @@
       <a href="/users/{{currentUser._id}}/form" class="btn-primary btn:hover">Editar Perfil</a>
     </div>
 
-    <img class="profile-image" src="{{currentUser.image}}" alt="Profile Image">
+    <img {{#if currentUser}}class="profile-image img-fluid" src="{{currentUser.image}}"{{/if}}class="fas fa-user-circle" alt="Profile Image">
     
-
-    <div class="text-center">
-      <i class="fas fa-user-circle"></i>
-    </div>
-
     <h2>Planes creados</h2>
 
     {{#each user.plans as |plan|}}

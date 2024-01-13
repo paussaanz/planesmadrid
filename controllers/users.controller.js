@@ -25,10 +25,12 @@ const User = require('../models/User.model')
   // Controlador para actualizar la información del perfil
   module.exports.doEditProfile = (req, res, next) => {
     const userId = req.session.currentUser._id;
-    const { username, email } = req.body;
-  
+    if(req.file){
+      req.body.image = req.file.path
+    }  
+    console.log("-------", req.body)
     // Actualizar la información del usuario en la base de datos
-    User.findByIdAndUpdate(userId, { username, email }, { new: true })
+    User.findByIdAndUpdate(userId, req.body , { new: true })
       .then(updatedUser => {
         req.session.currentUser = updatedUser;
         res.redirect('/profile');

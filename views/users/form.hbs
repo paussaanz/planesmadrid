@@ -1,13 +1,20 @@
 <div class="edit-profile-form">
   <h2>Editar perfil</h2>
-  <form action="/profile" method="POST">
+  
+  <form action="/profile" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+      {{#if user.image}}<img class="profile-image img-fluid" src="{{currentUser.image}}" alt="Profile Image">{{/if}}
+
+        <label for="image" style="color: black;" class="form-label">Subir imagen</label>
+        <input placeholder="Upload an image" type="file" name="image"
+          class="{{#if errors}}is-invalid{{/if}} form-control" id="image">
+      </div>
     <label for="username">Nombre de usuario:</label>
     <input type="text" id="username" name="username" value="{{user.username}}" required>
 
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" value="{{user.email}}" required>
 
-  
 
     <button type="submit" class="btn-primary">Guardar</button>
   </form>
