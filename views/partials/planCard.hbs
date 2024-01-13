@@ -1,12 +1,16 @@
 <div class="col">
-  <div class="card h-100">
+  <div class="card h-100 border-0 shadow">
     {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-    <div class="card-body">
+    <div class="card-body bg-light text-black">
       <h5 class="card-title">{{title}}</h5>
-      <p class="card-text">{{location}}</p>
-      <img src="{{image}}" class="img-thumbnail img-fluid" alt={{title}} width="200" />
-      <small class="text-body-secondary"><a href="/plans/{{_id}}" class="link-opacity-50-hover">Ver más</a></small>
-       
+      <p class="text-grey">{{location}}</p>
+      <p class="text-grey"><em>Creado por @{{user.username}}</em></p>
+      <div class="image-holder">
+        <img class="img-fit d-block" src="{{image}}" alt="foto artículo">
+    </div>
+      <div class="mt-3">
+        <a href="/plans/{{_id}}" class="btn btn-secondary">Ver más</a>
+      </div>
     </div>
   </div>
 </div>

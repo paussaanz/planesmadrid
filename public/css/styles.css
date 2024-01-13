@@ -85,7 +85,15 @@ color:white;
 }
 /*Esto es para que las imágenes ocupen el 100% de su padre*/
 .image-holder img {
-    width: 100%;
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.image-holder-large {
+    width: 1100px;
+    height: 600px;
     object-fit: cover;
     overflow: hidden;
 }
@@ -386,6 +394,13 @@ a.btn.text-bg-light {
 a.btn.text-bg-light:hover {
     background-color: #eee;
 }
+.rounded-user-image {
+    width: 150px; /* Ajusta el tamaño según tus necesidades */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 
 /*Estilos filtros*/
 

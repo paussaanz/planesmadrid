@@ -1,6 +1,6 @@
 <div class="container my-5">
   <div class="row g-4">
-
+<h2>Lo último en Madrid</h2>
     {{#each activities}}
     {{#compare @index '<' 1}} <div class="col-md-12">
       {{> homeCardLargeActivities this}}
@@ -14,7 +14,7 @@
 {{/compare}}
 {{/compare}}
 {{/each}}
-
+<h2>Los eventos de esta semana</h2>
 {{#each events}}
   {{#compare @index '>' 0}}
   {{#compare @index '<=' 2}} <div class="col-md-6">
@@ -23,7 +23,7 @@
 {{/compare}}
 {{/compare}}
 {{/each}}
-
+<h2>¿Qué se come en Madrid?</h2>
    {{#each restaurants}}
 
 

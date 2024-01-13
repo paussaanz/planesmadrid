@@ -3,21 +3,27 @@
     <div class="profile-header">
       <h1>{{currentUser.username}}</h1>
       <p><strong>Email: {{currentUser.email}}</strong></p>
-      <a href="/users/{{currentUser._id}}/form" class="btn-primary btn:hover">Editar Perfil</a>
+      <a href="/users/{{currentUser._id}}/form" class="btn btn-primary">Editar Perfil</a>
     </div>
 
-    <img {{#if currentUser}}class="profile-image img-fluid" src="{{currentUser.image}}"{{/if}}class="fas fa-user-circle" alt="Profile Image">
-    
-    <h2>Planes creados</h2>
+    <center><img {{#if currentUser}}class="rounded-user-image" src="{{currentUser.image}}"{{/if}} alt="Profile Image"></center>
 
-    {{#each user.plans as |plan|}}
-      {{>planCard this}}
-    {{/each}}
+    <h2>Planes creados</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {{#each user.plans as |plan|}}
+        <div class="col">
+          {{>planCard this}}
+        </div>
+      {{/each}}
+    </div>
 </br>
     <h2>Planes guardados</h2>
-    {{#each user.saves as |plan|}}
-
-      {{>planCard plan}}
-    {{/each}}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {{#each user.saves as |plan|}}
+        <div class="col">
+          {{>planCard this}}
+        </div>
+      {{/each}}
+    </div>
   </div>
 </div>

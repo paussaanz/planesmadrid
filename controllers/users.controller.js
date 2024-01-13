@@ -60,7 +60,7 @@ const User = require('../models/User.model')
             { new: true }
           )
           .populate('plans')
-          .populate('savedPlans');
+          .populate('saves');
         })
         .then(updatedUser => {
           req.session.currentUser = updatedUser; // Actualizar el usuario en la sesión
@@ -71,7 +71,7 @@ const User = require('../models/User.model')
       // No se cargó ninguna imagen, actualizar solo el nombre de usuario y el correo electrónico
       User.findByIdAndUpdate(userId, { username, email }, { new: true })
         .populate('plans')
-        .populate('savedPlans')
+        .populate('saves')
         .then(updatedUser => {
           req.session.currentUser = updatedUser; // Actualizar el usuario en la sesión
           res.render('users/profile', { currentUser: updatedUser });

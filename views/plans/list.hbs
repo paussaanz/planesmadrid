@@ -1,15 +1,20 @@
 <div class="container my-5">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    {{#each plans}}
-      {{>planCard this}}
-    {{/each}}
-  </div>
   {{#if currentUser}}
-<section class="btn-section">
-  <div class="container-sm mx-auto text-center">
-    
-    <a href="/plans/form" class="btn btn-info">Crea tu plan</a>
-  </div>
-</section>
-{{/if}}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {{#each plans}}
+        {{>planCard this}}
+      {{/each}}
+    </div>
+
+    <section class="btn-section mt-5">
+      <div class="container-sm mx-auto text-center">
+        <a href="/plans/form" class="btn btn-danger btn-lg">Crea tu plan</a>
+      </div>
+    </section>
+  {{else}}
+    <div class="text-center mt-5">
+      <p class="text-muted">Inicia sesión para ver y crear planes.</p>
+      <a href="/login" class="btn btn-primary btn-lg">Iniciar sesión</a>
+    </div>
+  {{/if}}
 </div>

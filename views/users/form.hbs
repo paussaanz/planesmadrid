@@ -5,9 +5,7 @@
       <div class="mb-3">
       {{#if user.image}}<img class="profile-image img-fluid" src="{{currentUser.image}}" alt="Profile Image">{{/if}}
 
-        <label for="image" style="color: black;" class="form-label">Subir imagen</label>
-        <input placeholder="Upload an image" type="file" name="image"
-          class="{{#if errors}}is-invalid{{/if}} form-control" id="image">
+      
       </div>
     <label for="username">Nombre de usuario:</label>
     <input type="text" id="username" name="username" value="{{user.username}}" required>

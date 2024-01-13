@@ -1,40 +1,37 @@
 <div class="container my-3 row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
+    <div class="col">
     <img class="img-fluid" src="{{plan.image}}" />
   </div>
   <div class="col">
     <h2>{{plan.title}}</h2>
-    <p class="text-danger fs-2 fw-bold">{{plan.duration}}€</p>
-    <p class="text-danger fs-2 fw-bold">{{plan.location}}€</p>
+    <p class="text-black">Localización: {{plan.location}}</p>
+    <p>Duración: {{plan.duration}}</p>
+    <p class="text-danger">A <strong>{{plan.likesCount}}</strong> personas les gusta este plan</p>
     <p class="fw-bold mt-5">Sobre esta actividad</p>
     <p>{{plan.description}}</p>
-    <a class="btn btn-primary" href="/plans">Ver todos los planes</a>
-        {{#userCreator planUser=plan.user currentUserId=currentUser._id}}
-
-    <a class="btn btn-primary" href="/plans/{{plan._id}}/edit">Editar plan</a>
+    <a class="btn btn-danger" href="/plans">Ver todos los planes</a>
+    
+    {{#userCreator planUser=plan.user currentUserId=currentUser._id}}
+      <a class="btn btn-secondary mt-2" href="/plans/{{plan._id}}/edit">Editar plan</a>
     {{/userCreator}}
     
-    <!-- Aquí tienes el botón de like -->
-
-     <p class="text-primary fs-2 fw-bold">{{plan.likesCount}} ❤️</p>
+    <!-- Aquí está el botón de like -->
+    
 
     <p class="fw-bold mt-5">Sobre esta actividad</p>
     <p>{{plan.description}}</p>
   
-  <form action="/plans/{{plan._id}}/like" method="POST">
-    <button type="submit" class="btn btn-primary">{{#planIsLiked userId=currentUser._id likes=plan.likes}}❤️{{else}}😄{{/planIsLiked}}</button>
-  </form>
+    <form action="/plans/{{plan._id}}/like" method="POST">
+      <button type="submit" class="btn btn-primary mt-2">{{#planIsLiked userId=currentUser._id likes=plan.likes}}I ❤️ este plan{{else}}I don't 🤍 este plan{{/planIsLiked}}</button>
+    </form>
 
-      
     <!-- Botón de eliminar plan -->
    
     <!-- Esto es la lógica del botón de guardar -->
     <form action="/plans/{{plan._id}}/save" method="POST">
-      <button type="submit" class="btn btn-primary">{{#planIsSaved userId=currentUser._id saves=plan.saves}}Eliminar de guardados{{else}}Guardar este plan{{/planIsSaved}}</button>
+      <button type="submit" class="btn btn-primary mt-2">{{#planIsSaved userId=currentUser._id saves=plan.saves}}Eliminar de guardados{{else}}Guardar este plan{{/planIsSaved}}</button>
     </form>
-  
 
     {{>comments entity=plan type="plan"}}
   </div>
-
 </div>

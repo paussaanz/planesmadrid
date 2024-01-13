@@ -9,6 +9,10 @@ const createError = require('http-errors');
 module.exports.list = function(req, res, next) {
   Plan.find()
   .populate('likes')
+  .populate({
+    path: 'user',
+    select: 'username' // Aquí seleccionas los campos que deseas obtener
+  })
   .then((plans) => 
   { res.render("plans/list", { plans })
   console.log(plans)
@@ -113,7 +117,7 @@ module.exports.saveAndListPlans = function (req, res, next) {
   Plan.findByIdAndUpdate(planId, { $addToSet: { savedByUsers: userId } })
     .then(() => {
       console.log(req.session.currentUser)
-      return User.findById(userId).populate('savedPlans');
+      return User.findById(userId).populate('saves');
     })
     .then(user => {
       res.redirect(`/plans/${planId}`);
@@ -128,7 +132,7 @@ module.exports.unsavePlan = function (req, res, next) {
 
   Plan.findByIdAndUpdate(planId, { $pull: { savedByUsers: userId } })
     .then(() => {
-      return User.findById(userId).populate('savedPlans');
+      return User.findById(userId).populate('saves');
     })
     .then(user => {
       res.redirect(`/plans/${planId}`);

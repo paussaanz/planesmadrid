@@ -12,21 +12,19 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/restaurants">Restaurantes</a>
         </li>
-        {{#unless currentUser}}
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/register">Register</a>
+           <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
         </li>
+        <li class="nav-item">
+          <strong><a class="nav-link active text-secondary" aria-current="page" href="/plans">Planes de usuarios</a></strong>
+        </li>
+        {{#unless currentUser}}
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/login">Login</a>
         </li>
         {{/unless}}
         {{#if currentUser}}
-         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active text-primary" aria-current="page" href="/plans">Planes de usuarios</a>
-        </li>
+      
         <li><a class="nav-link active text-danger" aria-current="page" href="/logout">Logout</a>
         </li>
         {{/if}}
