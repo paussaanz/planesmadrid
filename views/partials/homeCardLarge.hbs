@@ -1,14 +1,16 @@
-
-<div class="home-post">
+<div class="home-post ">
   <div class="image-holder">
-    <img class="img-fit" src="/images/madrid.jpg" alt="" width="540" height="578">
+    <img class="img-fit" src="{{imageUrl}}" alt="">
   </div>
   <div class="text-container">
     <div class="text-content">
       <div>
       <a class="text-link category" href="#">{{#if category}} {{category}} {{else}} Restaurantes {{/if}}</a>
       <h2><a class="text-link" href="">{{title}} {{#if name}} {{name}} {{/if}}</a></h2>
-      <h3><a class="text-link" href=""> {{#if cuisine}} {{cuisine}} {{/if}}</a></h3>
+      <h3 class="text-link"> {{#if cuisine}} {{cuisine}} {{/if}}</h3>
+      <p class="home-post">{{#if date}} Fecha: {{date}} {{/if}}</p>
+      <p class="home-post">{{#if rating}} Valoración: {{rating}} {{/if}}</p>
+      <p class="home-post">{{#if price}} Precio: {{price}} {{/if}}</p>
       </div>
       <div class="post-info">
         <p>by Stan Enemy<p>

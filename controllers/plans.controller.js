@@ -85,13 +85,16 @@ module.exports.deletePlan = (req, res, next) => {
   const planId = req.params.id;
 
   Plan.findByIdAndDelete(planId)
+    .populate("likes")
     .then((deletedPlan) => {
       if (!deletedPlan) {
         throw createError(404, 'No hemos encontrado este plan');
       }
 
-      // Eliminar los likes asociados al plan (Asegúrate de que el nombre del campo es correcto)
-      return Like.deleteMany({ _id: { $in: deletedPlan.likes } });
+      deletedPlan.likes.forEach(like => {
+        Like.findByIdAndDelete(like._id)
+          .then((removedLike) => console.log("sssss ", removedLike))
+      })
     })
     .then(() => {
       res.redirect('/plans');
