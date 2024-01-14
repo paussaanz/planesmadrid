@@ -12,36 +12,33 @@
         <button type="submit">Filtrar</button>
         <button type="button" onclick="resetFilters()">Quitar filtros</button>
     </form>
+    
   <div class="row g-4">
     {{#each events}}
-    {{#compare @index '<' 1}} <div class="col-md-12">
+    {{#compare @index '===' 0}} <div class="col-md-12">
       {{> eventCard this}}
   </div>
   {{/compare}}
 
-  {{#compare @index '>' 1}}
-  {{#compare @index '<=' 7}} <div class="col-md-4">
+  {{#compare @index '>' 0}}
+  {{#compare @index '<=' 6}} <div class="col-md-4">
     {{> eventCard this}}
 </div>
 {{/compare}}
 {{/compare}}
 
-  {{#compare @index '>' 6}}
-  {{#compare @index '<=' 8}} <div class="col-md-6">
+  {{#compare @index '>' 7}}
+  {{#compare @index '<' 7}} <div class="col-md-6">
     {{> eventCard this}}
 </div>
 {{/compare}}
 {{/compare}}
 
-
+  {{#compare @index '>' 7}} <div class="col-md-3">
+    {{> eventCard this}}
+</div>
+{{/compare}}
 {{/each}}
-{{#each events}}
- <div class="col-md-3">
-
-  {{> eventCard this}}
-  </div>
- 
-  {{/each}}
   </div>
   </div>
 

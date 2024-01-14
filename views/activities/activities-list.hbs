@@ -33,15 +33,13 @@
   {{/compare}}
   {{/compare}}
 
-
-  {{/each}}
-  {{#each activities}}
-  <div class="col-md-3">
-
+  {{#compare @index '>' 8}} <div class="col-md-3">
     {{> activityCard this}}
-  </div>
+</div>
+{{/compare}}
 
   {{/each}}
+
   </div>
   </div>
 

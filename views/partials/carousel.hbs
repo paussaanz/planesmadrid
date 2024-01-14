@@ -1,0 +1,28 @@
+<div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {{#each activities}}
+        <div class="carousel-item {{#if @first}}active{{/if}}">
+            <img src="{{imageUrl}}" class="card-img image-zoom" alt="...">
+            <div class="text-container">
+
+                <div class="img-overlay p-5">
+                    <a class="text-link category" href="activities/{{this._id}}">{{#if category}} {{category}} {{else}}
+                        Restaurantes
+                        {{/if}}</a>
+                    <h2 class="pt-4"><a class="text-link" href="">{{title}} {{#if name}} {{name}} {{/if}}</a></h2>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#miCarrusel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#miCarrusel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>

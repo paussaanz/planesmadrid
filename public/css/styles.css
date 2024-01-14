@@ -79,32 +79,68 @@ color:white;
     margin:0;
 }
 
+.img-overlay{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: var(--bs-card-img-overlay-padding);
+    border-radius: var(--bs-card-inner-border-radius);
+}
 /*Esto es para que al hacer hover sobre la imagen, no se salga del padre*/
 .image-holder  {
+    height:300px;
     overflow: hidden;
 }
 /*Esto es para que las imágenes ocupen el 100% de su padre*/
 .image-holder img {
-    width: 500px;
-    height: 300px;
-    object-fit: cover;
+    width: 100%;  
+    height: 100%; 
+    object-fit: cover; 
     overflow: hidden;
 }
-
 .image-holder-large {
-    width: 1100px;
+    width: 650px;
     height: 600px;
     object-fit: cover;
     overflow: hidden;
 }
+.image-holder-large img {
+    width: 100%;  
+    height: 100%; 
+    object-fit: cover; 
+    overflow: hidden;  
+}
+.carousel-inner{
+    height:550px;
+    overflow: hidden;
+}
+.carousel-item{
+    height:550px;
+}
+.carousel-item img{
+    width: 100%;  
+    height: 100%; 
+    object-fit: cover; 
+    overflow: hidden;
+    object-position: center center;
 
+}
+.custom-card-link {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Mantiene el color del texto igual al de la tarjeta */
+}
+
+.custom-card-link:hover {
+    text-decoration: none; /* Opcional: elimina el subrayado al pasar el ratón por encima */
+}
 /*Esto es para la parte del fondo degradado donde está el texto de cada tarjeta*/
 .text-container {
    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 70%;
+    height: 100%;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
     color: white;
     padding: 20px;
@@ -163,6 +199,10 @@ el del texto a la izquierda y el creador, y comentarios a la derecha*/
   }
   
   .image-holder:hover .image-zoom {
+    
+    transform: scale(1.08); 
+  }
+  .image-holder-large:hover .image-zoom {
     transform: scale(1.08); 
   }
   .subrayado:hover {
@@ -177,10 +217,6 @@ el del texto a la izquierda y el creador, y comentarios a la derecha*/
     align-items: flex-end;
 }
 
-
-
-
-  
 .detalles-evento {
     margin-top: 10px;
 }
@@ -206,11 +242,6 @@ el del texto a la izquierda y el creador, y comentarios a la derecha*/
     height: 180px;
 }
 
-.ver-mas-btn {
-    width: 100px; 
-    margin: 0 auto; 
-    display: block;
-}
 
 /*ESTILO USERS PROFILE*/
 
@@ -284,7 +315,6 @@ el del texto a la izquierda y el creador, y comentarios a la derecha*/
 }
 
 h2 {
-    text-align: center;
     color: #333;
     margin-bottom: 20px;
 }

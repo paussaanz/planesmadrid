@@ -30,7 +30,6 @@ router.get("/", (req, res, next) => {
     Restaurants.find().sort({ inclusionDate: -1 }).limit(5)
   ])
     .then(([activities, events, restaurants]) => {
-   
       res.render('home', { activities, events, restaurants });
 
     })
@@ -40,6 +39,7 @@ router.get("/", (req, res, next) => {
     })
 
 });
+
 
 
 // Google auth

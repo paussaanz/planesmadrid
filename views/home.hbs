@@ -1,11 +1,14 @@
 <div class="container my-5">
   <div class="row g-4">
+    
 <h2>Lo último en Madrid</h2>
-    {{#each activities}}
-    {{#compare @index '<' 1}} <div class="col-md-12">
-      {{> homeCardLargeActivities this}}
-  </div>
-  {{/compare}}
+{{#each activities}}
+  {{#if @first}}
+    <div class="col-md-12">
+      {{> carousel activities=../activities}}
+    </div>
+  {{/if}}
+
 
   {{#compare @index '>' 1}}
   {{#compare @index '<=' 5}} <div class="col-md-3">

@@ -34,13 +34,13 @@
 {{/compare}}
 
 
-{{/each}}
-{{#each restaurants}}
- <div class="col-md-3">
+  {{#compare @index '>' 8}} <div class="col-md-3">
+    {{> restaurantCard this}}
+</div>
+{{/compare}}
 
-  {{> restaurantCard this}}
-  </div>
- 
-  {{/each}}
+
+{{/each}}
+
   </div>
   </div>

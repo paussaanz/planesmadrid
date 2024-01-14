@@ -4,10 +4,10 @@
     </div>
     <div class="text-content-small">
         <a class="text-link category" href="restaurants/{{this._id}}">{{#if category}} {{category}} {{else}} Restaurantes {{/if}}</a>
-        <h2><a href="">{{title}} {{#if name}} {{name}} {{/if}}</a></h2>
-        <h3><a href=""> {{#if cuisine}} {{cuisine}} {{/if}}</a></h3>
-        <h3><a href=""> {{#if date}} Fecha: {{date}} {{/if}}</a></h3>
-        <h3><a href=""> {{#if rating}} Valoración: {{rating}} {{/if}}</a></h3>
+        <h2><a href="restaurants/{{this._id}}">{{title}} {{#if name}} {{name}} {{/if}}</a></h2>
+        <h3><a href="restaurants/{{this._id}}"> {{#if cuisine}} {{cuisine}} {{/if}}</a></h3>
+        <h3><a href="restaurants/{{this._id}}"> {{#if date}} Fecha: {{date}} {{/if}}</a></h3>
+        <h3><a href="restaurants/{{this._id}}"> {{#if rating}} Valoración: {{rating}} {{/if}}</a></h3>
         <h3>{{#if price}} Precio: {{price}} {{/if}}</h3>
     </div>
 
