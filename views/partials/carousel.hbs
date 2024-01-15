@@ -2,14 +2,17 @@
     <div class="carousel-inner">
         {{#each activities}}
         <div class="carousel-item {{#if @first}}active{{/if}}">
-            <img src="{{imageUrl}}" class="card-img image-zoom" alt="...">
+            <a href="activties/{{this._id}}">
+                <img src="{{imageUrl}}" class="card-img image-zoom" alt="...">
+            </a>
             <div class="text-container">
 
                 <div class="img-overlay p-5">
                     <a class="text-link category" href="activities/{{this._id}}">{{#if category}} {{category}} {{else}}
                         Restaurantes
                         {{/if}}</a>
-                    <h2 class="pt-4"><a class="text-link" href="">{{title}} {{#if name}} {{name}} {{/if}}</a></h2>
+                    <h2 class="pt-4"><a class="text-link" href="activities/{{this._id}}">{{title}} {{#if name}} {{name}}
+                            {{/if}}</a></h2>
                 </div>
             </div>
         </div>

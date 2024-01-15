@@ -1,15 +1,19 @@
 <div class="home-post">
   <div class="card image-holder-large text-white">
-    <img src="{{imageUrl}}" class="card-img image-zoom" alt="...">
+    <a href="/events/{{this._id}}">
+      <img src="{{imageUrl}}" class="card-img image-zoom" alt="...">
+    </a>
     <div class="text-container">
       <div class="img-overlay">
         <a class="text-link category" href="events/{{this._id}}">{{#if category}} {{category}} {{else}} Restaurantes
           {{/if}}</a>
-        <h2><a class="text-link card-title" href="">{{title}} {{#if name}} {{name}} {{/if}}</a></h2>
-        <h3 class="text-link"> {{#if cuisine}} {{cuisine}} {{/if}}</h3>
-        <p class="home-post card-text">{{#if date}} Fecha: {{date}} {{/if}}</p>
-        <p class="home-post card-text">{{#if rating}} Valoración: {{rating}} {{/if}}</p>
-        <p class="home-post card-text">{{#if price}} Precio: {{price}} {{/if}}</p>
+        <a class="text-link" href="events/{{this._id}}">
+          <h2 class="text-link">{{title}} {{#if name}} {{name}} {{/if}}</h2>
+          <h3 class="text-link"> {{#if cuisine}} {{cuisine}} {{/if}}</h3>
+          <p class="home-post card-text">{{#if date}} Fecha: {{date}} {{/if}}</p>
+          <p class="home-post card-text">{{#if rating}} Valoración: {{rating}} {{/if}}</p>
+          <p class="home-post card-text">{{#if price}} Precio: {{price}} {{/if}}</p>
+        </a>
       </div>
     </div>
   </div>
