@@ -72,14 +72,14 @@ UserSchema.virtual('plans', {
 })
 
 UserSchema.virtual('saves', {
-  ref: 'Save',
+  ref: 'Plan',
   localField: '_id',
   foreignField: 'user',
   justOne: false,
 });
 
 UserSchema.virtual('likes', {
-  ref: 'Like',
+  ref: 'Plan',
   localField: '_id',
   foreignField: 'user',
   justOne: false,
