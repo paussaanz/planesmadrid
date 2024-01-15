@@ -16,7 +16,7 @@ module.exports.createEmailTemplate = (user) => {
       <h1>Valida tu email</h1>
       <p>Hola ${user.username} 👋🏻, ¡Gracias por registrarte en <strong>planesmadrid</strong>!</p>
       <p>Haz clic aquí para verificar tu email</p>
-      <a href="http://${process.env.HOST}/activate/${user.activationToken}" style="background-color: green;color: whitesmoke;padding: 8px 12px;border-radius: 4px;text-decoration: none;">
+      <a href="${process.env.HOST}/activate/${user.activationToken}" style="background-color: green;color: whitesmoke;padding: 8px 12px;border-radius: 4px;text-decoration: none;">
         Activar cuenta
       </a>
     </div>

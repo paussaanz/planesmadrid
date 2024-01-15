@@ -6,7 +6,7 @@
       <a href="/users/{{currentUser._id}}/form" class="btn btn-primary">Editar Perfil</a>
     </div>
 
-    <center><img {{#if currentUser}}class="rounded-user-image" src="{{currentUser.image}}"{{/if}} alt="Profile Image"></center>
+    <center><img {{#if currentUser}}class="rounded-user-image img-fit" src="{{currentUser.image}}"{{/if}} alt="Profile Image"></center>
 
     <h2>Planes creados</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -17,6 +17,7 @@
       {{/each}}
     </div>
 </br>
+
     <h2>Planes guardados</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       {{#each user.saves as |plan|}}

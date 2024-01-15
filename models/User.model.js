@@ -79,7 +79,7 @@ UserSchema.virtual('saves', {
 });
 
 UserSchema.virtual('likes', {
-  ref: 'Like',
+  ref: 'Plan',
   localField: '_id',
   foreignField: 'user',
   justOne: false,
